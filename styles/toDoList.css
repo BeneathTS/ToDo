@@ -1,0 +1,7 @@
+.ToDoList{
+	position: relative;
+	width: calc(100% - 240px);
+	height: calc(100% - 192px);
+	margin-left: 240px;
+	background-color: #828282;
+}

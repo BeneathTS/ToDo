@@ -1,0 +1,7 @@
+.DayInfo {
+	position: relative;
+	margin-left: 240px;
+	width: calc(100% - 240px);
+	height: 192px;
+	background-color: #595959;
+}
