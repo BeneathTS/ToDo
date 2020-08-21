@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="styles/listMenu.css">
 	<link rel="stylesheet" href="styles/dayInfo.css">
 	<link rel="stylesheet" href="styles/toDoList.css">
-	<script src="scripts/displayHelloMessage.js"></script>
+	<script src="scripts/addTaskToList.js"></script>
 </head>
 <body>
 		<nav class="ListMenu">
@@ -23,13 +23,9 @@
 		</div>
 		<div class="ToDoList">
 			<form class="InputField">
-				<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList(event)" />
+				<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList()" />
 			</form>
-			<ul class="Tasks">
-				<li>
-					<span>Anything</span>
-				</li>
-			</ul>
+			<ul class="Tasks"></ul>
 		</div>
 </body>
 </html>
