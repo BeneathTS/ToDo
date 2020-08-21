@@ -17,24 +17,24 @@
 
 .UserNameStub {
 	width: 180px;
-	height: 20px;
-	margin: 15px 0px 22px 30px;
+	height: 15px;
+	margin: 33px 0px 0px 30px;
 	border-radius: 15% / 30px;
 	background-color: #626262;
 }
 
 ul.TasksList {
-	margin: 41px 0 0 0;
+	margin: 28px 0 0 0;
 	padding: 0;
 }
 
 .TasksList li{
 	list-style-type: none;
 	width: 234px;
-	height: 42px;
+	height: 35px;
 	margin: 5px 0px 0px 3px;
 	vertical-align: middle;
-	line-height: 42px;  
+	line-height: 35px;  
 	text-align: center;
 	margin-top: 10px;
 	font-family: sans-serif;
