@@ -52,7 +52,7 @@ ul.Tasks{
 
 .Tasks li:hover {
 	transition: 0.2s;
-	background-color: #988aa6;
+	background-color: #988aa6 !important;
 }
 
 .completeTaskStatus {
