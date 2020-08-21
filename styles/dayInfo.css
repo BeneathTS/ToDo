@@ -4,4 +4,8 @@
 	width: calc(100% - 240px);
 	height: 192px;
 	background-color: #595959;
+	background-image: linear-gradient(to top, black 11%, transparent 70%), url(../images/dayInfoBG.jpg);
+	background-size: cover;
+	background-position-y: 60%;
+	background-position-x: 0px;
 }
