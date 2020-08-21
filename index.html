@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<title>ToDoWebDemo</title>
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/mainStylesheet.css">
+	<link rel="stylesheet" href="styles/listMenu.css">
+	<link rel="stylesheet" href="styles/dayInfo.css">
+	<link rel="stylesheet" href="styles/toDoList.css">
 	<script src="scripts/displayHelloMessage.js"></script>
 </head>
-
 <body>
-	<script>
-		printHello();
-	</script>
-</body>
+		<nav class="ListMenu">
+			<div class="ProfileImageStub"></div>
+			<div class="UserNameStub"></div>
 
+			<ul class="TasksList">
+				<li id="MainTaskList" class="selected">Сегодня</li>
+			</ul>
+		</nav>
+		<div class="DayInfo">
+			<p class="taskListName">Сегодня</p>
+		</div>
+		<div class="ToDoList">
+			<form class="InputField">
+				<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList(event)" />
+			</form>
+			<ul class="Tasks">
+				<li>
+					<span>Anything</span>
+				</li>
+			</ul>
+		</div>
+</body>
 </html>
