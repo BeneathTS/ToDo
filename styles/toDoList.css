@@ -54,3 +54,9 @@ ul.Tasks{
 	transition: 0.2s;
 	background-color: #988aa6;
 }
+
+.completeTaskStatus {
+	transition: 0.4s !important;
+	text-decoration: line-through !important;
+	background-color: #6d5094 !important;
+}
