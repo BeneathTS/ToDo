@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<title>ToDoWebDemo</title>
@@ -10,7 +9,6 @@
 	<link rel="stylesheet" href="styles/toDoList.css">
 	<script src="scripts/displayHelloMessage.js"></script>
 </head>
-
 <body>
 		<nav class="ListMenu">
 			<div class="ProfileImageStub"></div>
@@ -23,6 +21,10 @@
 		<div class="DayInfo">
 			<p class="taskListName">Сегодня</p>
 		</div>
-		<div class="ToDoList"></div>
+		<div class="ToDoList">
+			<form class="InputField">
+				<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList(event)" />
+			</form>
+		</div>
 </body>
 </html>
