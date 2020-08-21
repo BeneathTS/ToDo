@@ -12,7 +12,7 @@
 	background-color: #ffffff;
 }
 
-.ToDoList input[id="InputTask"]{
+.ToDoList input[id="InputTask"] {
 	width: 100%;
 	height: 35px;
 	border: 0;
@@ -23,4 +23,29 @@
 	text-align: center;
 	color: #3f3f3f;
 	background-color: inherit;
+}
+
+ul.Tasks{
+	width: 100%;
+	height: calc(100% - 35px);
+	padding: 0;
+	margin: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.Tasks li {
+	list-style-type: none;
+	transition: 0.2s;
+	position: relative;
+	width: 100%;
+	height: 35px;
+	vertical-align: middle;
+	text-decoration: none;
+	line-height: 35px;  
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 18px;
+	color: #2c2c2c;
+	background-color: #afafaf;
 }
