@@ -10,6 +10,7 @@ function addTaskName(task, taskName) {
 	taskNameField = document.createElement("span");
 
 	taskNameField.setAttribute("class", "Task");
+	taskNameField.setAttribute("onclick", "putInputField(this)");
 
 	taskNameField.textContent = taskName;
 
