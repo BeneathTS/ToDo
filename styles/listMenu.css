@@ -1,18 +1,24 @@
-html {
-	height: 100%;
-}
-
-body {
-	height: 100%;
-	margin: 0px;
-	background-color: #cccccc;
-}
-
-.MainMenu{
+.ListMenu {
 	width: 240px;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	float: left;
 	background-color: #424242;
+}
+
+.ProfileImageStub {
+	margin: 40px 0px 0px 82px;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: #929292;
+}
+
+.UserNameStub {
+	width: 180px;
+	height: 20px;
+	margin: 15px 0px 22px 30px;
+	border-radius: 15% / 30px;
+	background-color: #626262;
 }
