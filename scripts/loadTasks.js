@@ -12,6 +12,9 @@ function addSavedTaskToTaskList(savedTask)	{
 	addTaskName(task, savedTask.task);
 	addActionButtons(task);
 
+	if (savedTask.status == "complete")
+		task.setAttribute("class", "completeTaskStatus");
+
 	taskList.appendChild(task);	
 }
 
