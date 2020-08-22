@@ -16,7 +16,7 @@ function addSavedTaskToTaskList(savedTask)	{
 }
 
 function loadTasks()	{
-	tasks = JSON.parse(sessionStorage.getItem("TaskList")) || [];
+	tasks = JSON.parse(localStorage.getItem("TaskList")) || [];
 	
 	if (!tasks)	return ;
 

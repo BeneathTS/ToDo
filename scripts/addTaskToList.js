@@ -57,6 +57,7 @@ function addTaskToList() {
 	addActionButtons(newTask);
 
 	tasksList.insertBefore(newTask, lastTask);
+	
 	saveTask(newTask);
 
 	resetInputFieldValue(inputField);
