@@ -2,22 +2,15 @@
 
 let tasks;
 
-function getTasksNum()
-{
-	let ct = 0;
-
-	while (tasks[ct++]);
-
-	return (ct - 1);
-}
-
 function addSavedTaskToTaskList(savedTask)	{
 	let taskList;
 	let task;
 
 	taskList = document.querySelector("ul.Tasks");
 	task = document.createElement("li");
-	addTaskName(task, savedTask);
+
+	addTaskName(task, savedTask.task);
+	addActionButtons(task);
 
 	taskList.appendChild(task);	
 }
@@ -30,10 +23,10 @@ function loadTasks()	{
 		return ;
 	}
 
-	let index = getTasksNum();
+	let index = -1;
 
-	while(--index > -1)
+	while(tasks[++index])
 	{
-		addSavedTaskToTaskList(tasks[index].task);
+		addSavedTaskToTaskList(tasks[index]);
 	}
 }

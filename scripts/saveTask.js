@@ -8,7 +8,7 @@ function saveTask(taskNode)	{
 	taskStatus = taskNode.getAttribute("class");
 	
 	
-	tasks.push({
+	tasks.unshift({
 		task: task,
 		taskStatus: taskStatus
 	});
