@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>ToDoWebDemo</title>
+
 	<link rel="stylesheet" href="styles/mainStylesheet.css">
 	<link rel="stylesheet" href="styles/listMenu.css">
 	<link rel="stylesheet" href="styles/dayInfo.css">
@@ -13,6 +14,8 @@
 	<script src="scripts/completeTask.js"></script>
 	<script src="scripts/removeTask.js"></script>
 	<script src="scripts/editTask.js"></script>
+	<script src="scripts/saveTask.js"></script>
+	<script src="scripts/loadTasks.js"></script>
 </head>
 <body>
 		<nav class="ListMenu">
@@ -32,5 +35,6 @@
 			</form>
 			<ul class="Tasks" onclick="changeTaskStatus()"></ul>
 		</div>
+		<script>loadTasks();</script>
 </body>
 </html>
