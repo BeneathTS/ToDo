@@ -12,7 +12,9 @@ function updateTaskName(taskInputField)	{
 	let targetTask = document.getElementById("EditTaskField").parentNode;
 	let taskNameField = document.createElement("span");
 
-	addTaskName(taskNameField, taskInputField.value);
+	taskNameField.setAttribute("class", "Task");
+	taskNameField.setAttribute("onclick", "putInputField(this)");
+	taskNameField.textContent = taskInputField.value;
 
 	targetTask.replaceChild(taskNameField, taskInputField);
 
