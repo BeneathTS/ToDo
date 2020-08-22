@@ -1,6 +1,8 @@
 function saveNewTask(taskInputField) {
 	let targetTask;
 	let taskName;
+	let taskIndex;
+	let taskList;
 
 	targetTask = document.getElementById("EditTaskField").parentNode;
 
@@ -13,6 +15,13 @@ function saveNewTask(taskInputField) {
 
 	taskName.textContent = taskInputField.value;
 	targetTask.replaceChild(taskName, taskInputField);
+
+	taskList = document.querySelector("ul.Tasks");
+
+	taskIndex = Array.prototype.indexOf.call(taskList.children, targetTask);
+
+	tasks[taskIndex].task = taskName.textContent;
+	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
 }
 
 function changeTask(event) {
