@@ -17,7 +17,7 @@ function saveTaskStatus(task)	{
 	else
 		tasks[taskIndex].status = null;
 
-	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
+	localStorage.setItem("TaskList", JSON.stringify(tasks));
 }
 
 function changeTaskStatus()	{

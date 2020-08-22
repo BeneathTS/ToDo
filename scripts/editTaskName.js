@@ -5,7 +5,7 @@ function saveNewTaskName(taskNameField, targetTask)	{
 
 	tasks[taskIndex].taskName = taskNameField.textContent;
 
-	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
+	localStorage.setItem("TaskList", JSON.stringify(tasks));
 }
 
 function updateTaskName(taskInputField)	{
@@ -13,7 +13,7 @@ function updateTaskName(taskInputField)	{
 	let taskNameField = document.createElement("span");
 
 	addTaskName(taskNameField, taskInputField.value);
-	
+
 	targetTask.replaceChild(taskNameField, taskInputField);
 
 	saveNewTaskName(taskNameField, targetTask);

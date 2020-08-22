@@ -9,5 +9,5 @@ function removeTask()	{
 
 	tasks.splice(taskIndex, 1);
 
-	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
+	localStorage.setItem("TaskList", JSON.stringify(tasks));
 }

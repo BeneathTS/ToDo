@@ -9,5 +9,5 @@ function saveTask(taskNode)	{
 		taskStatus: taskStatus
 	});
 
-	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
+	localStorage.setItem("TaskList", JSON.stringify(tasks));
 }
