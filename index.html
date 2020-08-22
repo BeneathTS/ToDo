@@ -11,30 +11,28 @@
 	<link rel="stylesheet" href="styles/actionButtons.css">
 
 	<script src="scripts/addTaskToList.js"></script>
-	<script src="scripts/completeTask.js"></script>
+	<script src="scripts/changeTaskStatus.js"></script>
 	<script src="scripts/removeTask.js"></script>
-	<script src="scripts/editTask.js"></script>
+	<script src="scripts/editTaskName.js"></script>
 	<script src="scripts/saveTask.js"></script>
 	<script src="scripts/loadTasks.js"></script>
 </head>
 <body>
-		<nav class="ListMenu">
-			<div class="ProfileImageStub"></div>
-			<div class="UserNameStub"></div>
-
-			<ul class="TasksList">
-				<li id="MainTaskList" class="selected">Сегодня</li>
-			</ul>
-		</nav>
-		<div class="DayInfo">
-			<p class="taskListName">Сегодня</p>
-		</div>
-		<div class="ToDoList">
-			<form class="InputField">
-				<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList()" />
-			</form>
-			<ul class="Tasks" onclick="changeTaskStatus()"></ul>
-		</div>
-		<script>loadTasks();</script>
+	<nav class="ListMenu">
+		<div class="ProfileImageStub"></div>
+		<div class="UserNameStub"></div>
+		<ul class="TasksList">
+			<li id="MainTaskList" class="selected">Сегодня</li>
+		</ul>
+	</nav>
+	<div class="DayInfo">
+		<p class="taskListName">Сегодня</p>
+	</div>
+	<div class="ToDoList">
+		<form class="InputField">
+			<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList()" />
+		</form>
+		<ul class="Tasks" onclick="changeTaskStatus()"></ul>
+	</div>
 </body>
 </html>
