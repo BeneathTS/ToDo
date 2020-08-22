@@ -1,14 +1,11 @@
 "use strict";
 
-function ressetInputFieldValue(inputField) {
+function resetInputFieldValue(inputField) {
 	inputField.value = '';
 }
 
 function addTaskName(task, taskName) {
-	let taskNameField;
-
-	taskNameField = document.createElement("span");
-
+	let taskNameField = document.createElement("span");
 	taskNameField.setAttribute("class", "Task");
 	taskNameField.setAttribute("onclick", "putInputField(this)");
 
@@ -62,5 +59,5 @@ function addTaskToList() {
 	tasksList.insertBefore(newTask, lastTask);
 	saveTask(newTask);
 
-	ressetInputFieldValue(inputField);
+	resetInputFieldValue(inputField);
 }

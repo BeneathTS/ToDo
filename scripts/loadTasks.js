@@ -3,13 +3,10 @@
 let tasks;
 
 function addSavedTaskToTaskList(savedTask)	{
-	let taskList;
-	let task;
+	let taskList = document.querySelector("ul.Tasks");
+	let task = document.createElement("li");
 
-	taskList = document.querySelector("ul.Tasks");
-	task = document.createElement("li");
-
-	addTaskName(task, savedTask.task);
+	addTaskName(task, savedTask.taskName);
 	addActionButtons(task);
 
 	if (savedTask.status == "complete")
@@ -19,17 +16,14 @@ function addSavedTaskToTaskList(savedTask)	{
 }
 
 function loadTasks()	{
-	tasks = JSON.parse(sessionStorage.getItem("TaskList"));
+	tasks = JSON.parse(sessionStorage.getItem("TaskList")) || [];
 	
-	if (!tasks){
-		tasks = []; 
-		return ;
-	}
+	if (!tasks)	return ;
 
-	let index = -1;
-
-	while(tasks[++index])
+	for (let index in tasks)
 	{
 		addSavedTaskToTaskList(tasks[index]);
 	}
 }
+
+document.addEventListener("DOMContentLoaded", loadTasks);

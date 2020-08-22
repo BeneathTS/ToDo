@@ -1,17 +1,13 @@
 "use strict";
 
-function removeTask() {
-	let task;
-	let taskList;
-	let taskIndex;
-
-	task = document.querySelector(".Tasks li:hover");
-	taskList = document.querySelector("ul.Tasks");
-
-	taskIndex = Array.prototype.indexOf.call(taskList.children, task);
+function removeTask()	{
+	let task = document.querySelector(".Tasks li:hover");
+	let taskList = document.querySelector("ul.Tasks");
+	let taskIndex = Array.prototype.indexOf.call(taskList.children, task);
+	
+	taskList.removeChild(task);
 
 	tasks.splice(taskIndex, 1);
-	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
 
-	taskList.removeChild(task);
+	sessionStorage.setItem("TaskList", JSON.stringify(tasks));
 }
