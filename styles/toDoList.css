@@ -1,4 +1,4 @@
-.ToDoList {
+.toDoList {
 	position: relative;
 	width: calc(100% - 240px);
 	height: calc(100% - 192px);
@@ -6,13 +6,13 @@
 	background-color: #828282;
 }
 
-.InputField {
+.inputField {
 	width: 100%;
 	height: 35px;
 	background-color: #ffffff;
 }
 
-.ToDoList input[id="InputTask"] {
+.toDoList input[id="inputTask"] {
 	width: 100%;
 	height: 33px;
 	border: 0;
@@ -25,7 +25,7 @@
 	background-color: inherit;
 }
 
-ul.Tasks{
+ul.tasks{
 	width: 100%;
 	height: calc(100% - 35px);
 	padding: 0;
@@ -34,7 +34,7 @@ ul.Tasks{
 	overflow-x: hidden;
 }
 
-.Tasks li {
+.tasks li {
 	list-style-type: none;
 	transition: 0.2s;
 	position: relative;
@@ -50,7 +50,7 @@ ul.Tasks{
 	background-color: #afafaf;
 }
 
-.Tasks li:hover {
+.tasks li:hover {
 	transition: 0.2s;
 	background-color: #988aa6 !important;
 }
@@ -61,7 +61,7 @@ ul.Tasks{
 	background-color: #6d5094 !important;
 }
 
-.ToDoList input[id="EditTaskField"]{
+.toDoList input[id="editTaskField"]{
 	width: 100%;
 	height: 32px;
 	border: 0;

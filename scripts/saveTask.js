@@ -5,8 +5,8 @@ function saveTask(taskNode)	{
 	let taskStatus = taskNode.getAttribute("class");
 	
 	tasks.unshift({
-		taskName: taskName,
-		taskStatus: taskStatus
+		taskName,
+		taskStatus
 	});
 
 	localStorage.setItem("TaskList", JSON.stringify(tasks));

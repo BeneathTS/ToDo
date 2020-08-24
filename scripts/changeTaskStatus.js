@@ -1,18 +1,14 @@
 "use strict";
 
 function setTaskStatus(selectedTask)	{
-	if (!selectedTask.getAttribute("class")) {
-		selectedTask.setAttribute("class", "completeTaskStatus");
-		return;
-	}
-	selectedTask.removeAttribute("class");
+	selectedTask.classList.toggle("completeTaskStatus");
 }
 
 function saveTaskStatus(task)	{
-	let taskList = document.querySelector("ul.Tasks");
+	let taskList = document.querySelector("ul.tasks");
 	let taskIndex = Array.prototype.indexOf.call(taskList.children, task);
 
-	if (task.getAttribute("class") == "completeTaskStatus")
+	if (task.classList.contains("completeTaskStatus"))
 		tasks[taskIndex].status = "complete";
 	else
 		tasks[taskIndex].status = null;
@@ -21,14 +17,10 @@ function saveTaskStatus(task)	{
 }
 
 function changeTaskStatus()	{
-	if (event.target.getAttribute("class") == "Task" ||
-		event.target.getAttribute("id") == "EditTask") return;
+	if (!event.target.classList.contains("task") &&
+		event.target.tagName !== "LI") return;
 
-	let task = document.querySelector(".Tasks li:hover");
+	setTaskStatus(event.target);
 
-	if (!task) return;
-	
-	setTaskStatus(task);
-
-	saveTaskStatus(task);
+	saveTaskStatus(event.target);
 }

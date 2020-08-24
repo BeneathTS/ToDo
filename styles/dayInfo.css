@@ -1,4 +1,4 @@
-.DayInfo {
+.dayInfo {
 	position: relative;
 	margin-left: 240px;
 	width: calc(100% - 240px);
@@ -10,7 +10,7 @@
 	background-position-x: 0px;
 }
 
-.DayInfo p {
+.dayInfo p {
 	position: absolute;
 	bottom: 0;
 	margin:0px 0px 20px 40px;

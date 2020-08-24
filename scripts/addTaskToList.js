@@ -6,10 +6,11 @@ function resetInputFieldValue(inputField) {
 
 function addTaskName(task, taskName) {
 	let taskNameField = document.createElement("span");
-	taskNameField.setAttribute("class", "Task");
-	taskNameField.setAttribute("onclick", "putInputField(this)");
-
+	
+	taskNameField.classList.add("task");
 	taskNameField.textContent = taskName;
+
+	taskNameField.addEventListener("click", putInputField);
 
 	task.appendChild(taskNameField);
 }
@@ -17,44 +18,43 @@ function addTaskName(task, taskName) {
 function setButtonAction(button) {
 	switch (button.getAttribute("class")) {
 		case "removeButton":
-			button.setAttribute("onclick", "removeTask()");
+			button.addEventListener("click", removeTask);
 			break;
 	}
 }
 
 function setButtonType(button, buttonType) {
-	button.setAttribute("class", buttonType);
+	button.classList.add(buttonType);
 }
 
 function addActionButtons(task) {
-	let buttonsField = document.createElement("div");
 	let removeButton = document.createElement("div");
 
-	buttonsField.setAttribute("class", "actionButtons");
 	setButtonType(removeButton, "removeButton");
 	setButtonAction(removeButton);
 
 	removeButton.textContent = 'x';
 
-	buttonsField.appendChild(removeButton);
-	task.appendChild(buttonsField);
+	task.appendChild(removeButton);
 }
 
 function addTaskToList() {
-	if (event.key != 'Enter') return;
+	if (event.key !== 'Enter') return;
 
 	event.preventDefault();
 
-	let inputField = document.getElementById("InputTask");
+	let inputField = document.getElementById("inputTask");
 
 	if (!inputField.value) return;
 
-	let tasksList = document.querySelector("ul.Tasks");
-	let lastTask = document.querySelector(".Tasks li");
+	let tasksList = document.querySelector("ul.tasks");
+	let lastTask = document.querySelector(".tasks li");
 	let newTask = document.createElement("li");
 
 	addTaskName(newTask, inputField.value);
 	addActionButtons(newTask);
+
+	newTask.addEventListener("click", changeTaskStatus);
 
 	tasksList.insertBefore(newTask, lastTask);
 	

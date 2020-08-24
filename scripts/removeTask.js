@@ -1,8 +1,8 @@
 "use strict";
 
 function removeTask()	{
-	let task = document.querySelector(".Tasks li:hover");
-	let taskList = document.querySelector("ul.Tasks");
+	let task = event.target.parentNode;
+	let taskList = document.querySelector("ul.tasks");
 	let taskIndex = Array.prototype.indexOf.call(taskList.children, task);
 	
 	taskList.removeChild(task);

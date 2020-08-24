@@ -16,23 +16,24 @@
 	<script src="scripts/editTaskName.js"></script>
 	<script src="scripts/saveTask.js"></script>
 	<script src="scripts/loadTasks.js"></script>
+	<script src="scripts/addEvents.js"></script>
 </head>
 <body>
-	<nav class="ListMenu">
-		<div class="ProfileImageStub"></div>
-		<div class="UserNameStub"></div>
-		<ul class="TasksList">
-			<li id="MainTaskList" class="selected">Сегодня</li>
+	<nav class="listMenu">
+		<div class="profileImageStub"></div>
+		<div class="userNameStub"></div>
+		<ul class="tasksList">
+			<li id="mainTaskList" class="selected">Сегодня</li>
 		</ul>
 	</nav>
-	<div class="DayInfo">
+	<div class="dayInfo">
 		<p class="taskListName">Сегодня</p>
 	</div>
-	<div class="ToDoList">
-		<form class="InputField">
-			<input type="text" id="InputTask" placeholder="Что будем делать?" onkeypress="addTaskToList()" />
+	<div class="toDoList">
+		<form class="inputField">
+			<input type="text" id="inputTask" placeholder="Что будем делать?" />
 		</form>
-		<ul class="Tasks" onclick="changeTaskStatus()"></ul>
+		<ul class="tasks"></ul>
 	</div>
 </body>
 </html>
