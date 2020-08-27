@@ -1,0 +1,16 @@
+.toDoList {
+	position: relative;
+	width: calc(100% - 240px);
+	height: calc(100% - 176px);
+	margin-left: 240px;
+	background-color: #828282;
+}
+
+ul.tasks{
+	width: 100%;
+	height: calc(100% - 35px);
+	padding: 0;
+	margin: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
