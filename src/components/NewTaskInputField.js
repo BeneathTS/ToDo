@@ -13,7 +13,7 @@ export default class NewTaskIputField extends React.Component {
 		
 		if (!event.target.taskName.value) return;
 
-		this.props.getSubmittedTask(event.target.taskName.value);
+		this.props.addSubmittedTask(event.target.taskName.value);
 		event.target.taskName.value = '';
 	}
 

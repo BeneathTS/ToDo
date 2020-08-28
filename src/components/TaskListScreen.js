@@ -11,7 +11,7 @@ export default class TaskListScreen extends React.Component {
 		});
 	}
 
-	getSubmittedTask = (submittedTaskName) => {
+	addSubmittedTask = (submittedTaskName) => {
 		const oldTaskList = this.state.tasks;
 
 		oldTaskList.unshift({
@@ -22,11 +22,17 @@ export default class TaskListScreen extends React.Component {
 		this.setState(oldTaskList);
 	}
 
+	// removeTaskFromList(){
+	// 	const oldTaskList = this.state.tasks;
+		
+
+	// }
+
 	render() {
 		
 		return (
 			<div className="taskListScreen">
-				<NewTaskInputField getSubmittedTask={this.getSubmittedTask} />
+				<NewTaskInputField addSubmittedTask={this.addSubmittedTask} />
 				<TaskList tasks={this.state.tasks} />
 			</div>
 		);

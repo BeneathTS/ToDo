@@ -9,20 +9,22 @@
 	line-height: 35px;  
 	text-align: center;
 	font-family: sans-serif;
+	/* font-weight: 350; */
 	font-size: 18px;
-	color: #2c2c2c;
-	background-color: #afafaf;
+	color: #acacac;
+	background-color: #3f3f3f;
 }
 
 .tasks li:hover {
 	transition: 0.2s;
-	background-color: rgb(167, 108, 85) !important;
+	background-color: rgb(83, 83, 83) !important;
 }
 
 .completeTaskStatus {
 	transition: 0.4s !important;
 	text-decoration: line-through !important;
-	background-color: #6d5094 !important;
+	color: #383838 !important;
+	background-color: #222 !important;
 }
 
 .toDoList input[id="editTaskField"]{
