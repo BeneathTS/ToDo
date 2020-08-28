@@ -1,26 +1,28 @@
 import React from 'react';
 import Task from './Task';
-import NewTaskInputField from './NewTaskInputField';
 import '../styles/TaskList.css';
 
 export default class TaskList extends React.Component {
-	// constructor(props) {
-	// 	this.state.tasks = [{ taskName: "Test Task 1" }, { taskName: "Test Task 2" } ];
-	// }
+	constructor(props) {
+		super(props);
+		this.state = {
+			tasks: this.props.tasks
+		};
+	}
 
-	addNewTaskToList() {
-		alert("Lox!");
-	};
+	createTasks(task) {
+		return (
+			<Task key={task.id} taskName={task.taskName} taskStatus={task.taskStatus}/>
+		);
+	}
 
 	render() {
+		let taskList = this.state.tasks.map(this.createTasks);
+		console.log(taskList);
 		return (
-			<div className="toDoList">
-				<NewTaskInputField />
-				<ul className="tasks">
-					<Task taskName="Test Task 1" />
-					<Task taskName="Test Task 2" />
-				</ul>
-			</div>
+			<ul className="tasks">
+				{taskList}
+			</ul>
 		);
 	}
 }

@@ -5,13 +5,24 @@ import '../styles/Task.css';
 export default class Task extends React.Component{
 	constructor(props){
 		super(props);
-		this.taskName = props.taskName;
-		this.taskStatus = "active";
+		this.state = {
+			taskName: props.taskName || "TaskDefaultName",
+			taskStatus: null
+		};
 	}
-	render = () => (
-		<li>
-			<span className="task">{this.taskName}</span>
-			<RemoveButton />
-		</li>
-	);
+
+	changeTaskStatus() {
+		const newStatus = !this.state.taskStatus ? "completeTaskStatus" : null;
+
+		this.setState({taskStatus: newStatus});
+	};
+
+	render() {
+		return (
+			<li className={this.state.taskStatus} onClick={() => this.changeTaskStatus(this)}>
+				<span className="task">{this.state.taskName}</span>
+				<RemoveButton />
+			</li>
+		);
+	}
 }
