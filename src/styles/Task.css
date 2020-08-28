@@ -16,7 +16,7 @@
 
 .tasks li:hover {
 	transition: 0.2s;
-	background-color: #988aa6 !important;
+	background-color: rgb(167, 108, 85) !important;
 }
 
 .completeTaskStatus {

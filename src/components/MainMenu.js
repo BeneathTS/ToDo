@@ -26,7 +26,7 @@ function TaskLists() {
 	return (
 		<ul className="taskList">
 			<li id="mainTaskList" className="selected">
-				<span>Сегодня</span>
+				<span>Today</span>
 			</li>
 		</ul>
 	);

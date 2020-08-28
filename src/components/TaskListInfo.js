@@ -5,7 +5,8 @@ export default class TaskListInfo extends React.Component {
 	render() {
 		return (
 			<div className="taskListInfo">
-				<span className="taskListNameStub">Сегодня</span>
+				<span className="taskListNameStub">Today</span>
+				<div id="TaskListInfoBG" href="../images/dayInfoBG.jpg"/>
 			</div>
 		);
 	}

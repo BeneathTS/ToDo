@@ -3,9 +3,9 @@ html {
 }
 
 body {
-	height: 100%;
+	height: calc(100% - 40px);
 	margin: 0px;
-	background-color: #cccccc;
+	background-color: #999;
 }
 
 #toDoList {
@@ -14,4 +14,9 @@ body {
 
 .app {
   height: 100%;
+  margin: 20px;
+  border: 0;
+  padding: 0;
+  border-radius: 23px / 19px;
+  background-color: #000;
 }

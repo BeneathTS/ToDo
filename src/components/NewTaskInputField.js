@@ -3,6 +3,10 @@ import React from 'react';
 import '../styles/NewTaskInputField.css';
 
 export default class NewTaskIputField extends React.Component {
+	constructor(){
+		super();
+		this.placeholder = "What we gonna do?";
+	}
 
 	submitNewTask = (event) => {
 		event.preventDefault();
@@ -16,7 +20,7 @@ export default class NewTaskIputField extends React.Component {
 	render() {
 		return (
 			<form className="inputField" onSubmit={this.submitNewTask}>
-				<input type="text" id="newTaskInputField" name="taskName" placeholder="Что будем делать?" />
+				<input type="text" id="newTaskInputField" name="taskName" placeholder={this.placeholder} />
 			</form>
 		);
 	}
