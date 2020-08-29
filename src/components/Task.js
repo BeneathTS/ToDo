@@ -11,17 +11,18 @@ export default class Task extends React.Component{
 		};
 	}
 
-	changeTaskStatus() {
-		const newStatus = !this.state.taskStatus ? "completeTaskStatus" : null;
+	changeTaskStatus = (event) => {
+		if (event.target.tagName !== "LI") return;
 
+		const newStatus = !this.state.taskStatus ? "completeTaskStatus" : null;
 		this.setState({taskStatus: newStatus});
 	};
 
 	render() {
 		return (
-			<li className={this.state.taskStatus} onClick={() => this.changeTaskStatus(this)}>
+			<li className={this.state.taskStatus} onClick={this.changeTaskStatus}>
 				<span className="task">{this.state.taskName}</span>
-				<RemoveButton />
+				<RemoveButton removeTaskFromList={this.props.removeTask}/>
 			</li>
 		);
 	}

@@ -6,7 +6,7 @@ export default class TaskListInfo extends React.Component {
 		return (
 			<div className="taskListInfo">
 				<span className="taskListNameStub">Today</span>
-				<div id="TaskListInfoBG" href="../images/dayInfoBG.jpg"/>
+				{/* <div id="TaskListInfoBG" href="../images/dayInfoBG.jpg"/> */}
 			</div>
 		);
 	}

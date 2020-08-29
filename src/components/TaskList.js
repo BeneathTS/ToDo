@@ -10,15 +10,20 @@ export default class TaskList extends React.Component {
 		};
 	}
 
-	createTasks(task) {
+	createTasks = (task) => {
 		return (
-			<Task key={task.id} taskName={task.taskName} taskStatus={task.taskStatus}/>
+			<Task
+				key={task.id}
+				taskName={task.taskName}
+				taskStatus={task.taskStatus}
+				removeTask={this.props.removeTaskFromList}
+			/>
 		);
 	}
 
 	render() {
 		let taskList = this.state.tasks.map(this.createTasks);
-		console.log(taskList);
+
 		return (
 			<ul className="tasks">
 				{taskList}
