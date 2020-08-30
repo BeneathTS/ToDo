@@ -35,8 +35,8 @@ function TaskLists() {
 export default function MainMenu () {
 	return (
 		<div className="mainMenu">
-			{/* <UserProfileInfo /> */}
-			{/* <TaskLists /> */}
+			<UserProfileInfo />
+			<TaskLists />
 		</div>
 	);
 }
