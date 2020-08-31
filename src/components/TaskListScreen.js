@@ -6,10 +6,12 @@ import '../styles/TaskListScreen.css';
 export default class TaskListScreen extends React.Component {
 	constructor(){
 		super();
-		this.taskID = -1;
-		this.state = ({
-			tasks: []
-		});
+		this.state = (
+			JSON.parse(localStorage.getItem('TaskList')) ||
+			{ tasks: []	}
+			);
+		this.taskID = this.state.tasks[0].id || -1;
+
 	}
 
 	addSubmittedTask = (submittedTaskName) => {
@@ -22,6 +24,7 @@ export default class TaskListScreen extends React.Component {
 			editMode: false
 		});
 		this.setState(tasks);
+		localStorage.setItem('TaskList', JSON.stringify(this.state));
 	}
 
 	removeTaskFromList = (targetTask) => {
@@ -32,6 +35,7 @@ export default class TaskListScreen extends React.Component {
 
 		tasks.splice(targetTaskIndex, 1);
 		this.setState(tasks);
+		localStorage.setItem('TaskList', JSON.stringify(this.state));
 	}
 
 	changeTaskName = (oldTaskName, newTaskName) => {
@@ -43,6 +47,7 @@ export default class TaskListScreen extends React.Component {
 		tasks[targetTaskIndex].taskName = newTaskName;
 		tasks[targetTaskIndex].editMode = false;
 		this.setState(tasks);
+		localStorage.setItem('TaskList', JSON.stringify(this.state));
 	}
 
 	activateEditMode = (event) => {
@@ -53,6 +58,7 @@ export default class TaskListScreen extends React.Component {
 
 		tasks[targetTaskIndex].editMode = true;
 		this.setState(tasks);
+		localStorage.setItem('TaskList', JSON.stringify(this.state));
 	}
 
 	changeTaskStatus = (event) => {
@@ -65,6 +71,7 @@ export default class TaskListScreen extends React.Component {
 
 		tasks[targetTaskIndex].taskStatus = !tasks[targetTaskIndex].taskStatus ? "completeTaskStatus" : null;
 		this.setState(tasks);
+		localStorage.setItem('TaskList', JSON.stringify(this.state));
 	};
 
 	render() {

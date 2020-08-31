@@ -16,6 +16,7 @@
 }
 
 .removeButton:hover {
+	cursor: pointer;
 	transition: 0.2s;
 	opacity: 0.8;
 	background-color: rgb(182, 0, 0);

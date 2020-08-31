@@ -3,8 +3,19 @@ import React, { Component } from 'react';
 export default class EditTaskNameField extends Component{
 	submitEditedTaskName = (event) => {
 		event.preventDefault();
+		const oldTaskName = this.props.taskName;
+		const newTaskName = event.type === "submit" ?
+			event.target.newTaskName.value :
+			event.target.value;
 
-		this.props.changeTaskName(this.props.taskName, event.target.newTaskName.value);
+		this.props.changeTaskName(oldTaskName, newTaskName);
+	}
+
+	componentDidMount() {
+		const editTaskNameField = document.getElementById("editTaskNameField");
+
+		editTaskNameField.focus();
+		editTaskNameField.select();
 	}
 
 	render() {
@@ -15,6 +26,7 @@ export default class EditTaskNameField extends Component{
 					id="editTaskNameField"
 					name="newTaskName"
 					defaultValue={this.props.taskName}
+					onBlur={this.submitEditedTaskName}
 				/>
 			</form>
 		);
