@@ -1,12 +1,3 @@
-.actionButtons {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	width: 35px;
-	height: 35px;
-}
-
 .removeButton {
 	position: absolute;
 	user-select: none;
@@ -16,14 +7,17 @@
 	font-size: 16px;
 	font-family: sans-serif;
 	right: 0;
+	top: 0;
 	width: 35px;
 	height: 35px;
 	opacity: 0.2;
 	transition: 0.2s;
+	color: #999;
 }
 
 .removeButton:hover {
+	cursor: pointer;
 	transition: 0.2s;
 	opacity: 0.8;
-	background-color: #f00;
+	background-color: rgb(182, 0, 0);
 }

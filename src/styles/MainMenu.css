@@ -1,13 +1,18 @@
-.ListMenu {
+.mainMenu {
 	width: 240px;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	float: left;
-	background-color: #424242;
+	/* border-radius: 23px 0 0 23px / 19px 0 0 19px ; */
+	background-color: #1f1f1f;
 }
 
-.ProfileImageStub {
+.userProfileInfo {
+	height: 126px;
+}
+
+.profileImageStub {
 	margin: 40px 0px 0px 82px;
 	width: 75px;
 	height: 75px;
@@ -15,20 +20,20 @@
 	background-color: #929292;
 }
 
-.UserNameStub {
+.profileNameStub {
 	width: 180px;
 	height: 15px;
-	margin: 33px 0px 0px 30px;
+	margin: 16px 0px 0px 30px;
 	border-radius: 15% / 30px;
 	background-color: #626262;
 }
 
-ul.TasksList {
-	margin: 29px 0 0 0;
+ul.taskList {
+	margin: 0;
 	padding: 0;
 }
 
-.TasksList li{
+.taskList li{
 	list-style-type: none;
 	width: 234px;
 	height: 35px;
@@ -44,10 +49,10 @@ ul.TasksList {
 	background-color: #636363 transparent;
 }
 
-.TasksList li:hover{
+.taskList li:hover{
 	background-color: #4b4b4b;
 }
 
-#MainTaskList{
+#mainTaskList{
 	background-color: #636363;
 }
