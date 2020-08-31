@@ -10,7 +10,11 @@ export default class TaskListScreen extends React.Component {
 			JSON.parse(localStorage.getItem('TaskList')) ||
 			{ tasks: []	}
 			);
-		this.taskID = this.state.tasks[0].id || -1;
+		this.taskID = (
+			this.state.tasks[0] ? 
+			this.state.tasks[0].id :
+			-1
+		);
 
 	}
 
