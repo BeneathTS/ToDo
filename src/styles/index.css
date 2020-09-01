@@ -11,10 +11,6 @@ body {
 
 #toDoList {
   height: 100%;
-}
-
-.app {
-  height: 100%;
   /* margin: 20px; */
   border: 0;
   padding: 0;

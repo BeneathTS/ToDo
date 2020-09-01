@@ -1,8 +1,13 @@
 import React from 'react';
 import Task from './Task';
 import '../styles/TaskList.css';
+import { connect } from 'react-redux';
 
-export default class TaskList extends React.Component {
+// const putTasksToTaskList = (state) => ({
+// 	tasks: state.tasks
+// })
+
+class TaskList extends React.Component {
 	createTasks = (task) => {
 		return (
 			<Task
@@ -19,7 +24,10 @@ export default class TaskList extends React.Component {
 	}
 
 	render() {
-		let taskList = this.props.tasks.map(this.createTasks);
+		console.log("TaskList_dbg");
+		console.log(this.props.tasks);
+		console.log(this.props.tasks[0]);
+		let taskList = this.props.tasks.map(this.createTasks); 
 
 		return (
 			<ul className="tasks">
@@ -28,3 +36,5 @@ export default class TaskList extends React.Component {
 		);
 	}
 }
+
+export default TaskList//connect(putTasksToTaskList)(TaskList);

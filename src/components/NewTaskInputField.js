@@ -18,6 +18,8 @@ export default class NewTaskIputField extends React.Component {
 	}
 
 	render() {
+		console.log("InputField props:");
+		console.log(this.props);
 		return (
 			<form className="inputField" onSubmit={this.submitNewTask}>
 				<input type="text" id="newTaskInputField" name="taskName" placeholder={this.placeholder} />
