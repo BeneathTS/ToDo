@@ -3,12 +3,14 @@ import '../styles/Task.css'
 
 export default class TaskNameField extends Component {
 	render() {
+		const { taskName, toggleEditMode} = this.props;
+
 		return (
 			<span
 				className="task"
-				onClick={this.props.activateEditMode}
+				onClick={toggleEditMode}
 			>
-				{this.props.taskName}
+				{taskName}
 			</span>
 		);
 	}

@@ -1,26 +1,31 @@
 import React from 'react';
 import Task from './Task';
-import '../styles/TaskList.css';
 import { connect } from 'react-redux';
+import '../styles/TaskList.css';
+
+const putStoreToTaskList = (state) => {
+	const { tasks } = state;
+
+	return (
+		{ tasks }
+	);
+
+}
 
 class TaskList extends React.Component {
 	createTasks = (task) => {
 		return (
 			<Task
 				key={task.id}
+				id={task.id}
 				taskName={task.taskName}
-				editMode={task.editMode}
 				taskStatus={task.taskStatus}
-				removeTask={this.props.removeTaskFromList}
-				changeTaskName={this.props.changeTaskName}
-				changeTaskStatus={this.props.changeTaskStatus}
-				activateEditMode={this.props.activateEditMode}
 			/>
 		);
 	}
 
 	render() {
-		let taskList = this.props.tasks.map(this.createTasks); 
+		const taskList = this.props.tasks.map(this.createTasks); 
 
 		return (
 			<ul className="tasks">
@@ -30,4 +35,6 @@ class TaskList extends React.Component {
 	}
 }
 
-export default TaskList//connect(putTasksToTaskList)(TaskList);
+export default connect(
+	putStoreToTaskList)
+	(TaskList);

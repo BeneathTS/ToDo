@@ -1,5 +1,7 @@
-// import React from 'react';
-import { ADD_SUBMITTED_TASK, CHANGE_TASK_STATUS, CHANGE_TASK_NAME, ACTIVATE_EDIT_MODE, REMOVE_TASK_FROM_LIST } from '../types';
+import {	ADD_SUBMITTED_TASK, 
+			CHANGE_TASK_STATUS,
+			CHANGE_TASK_NAME,
+			REMOVE_TASK_FROM_LIST } from '../types';
 
 export const addSubmittedTaskNameAction = (submittedTaskName) => {
 	return({
@@ -15,17 +17,10 @@ export const changeTaskStatusAction = (taskID) => {
 	});
 }
 
-export const changeTaskNameAction = (newTaskName) => {
+export const changeTaskNameAction = (editFieldData) => {
 	return ({
 		type: CHANGE_TASK_NAME,
-		payload: newTaskName
-	});
-}
-
-export const activateEditModeAction = (taskID) => {
-	return({
-		type: ACTIVATE_EDIT_MODE,
-		payload: taskID
+		payload: editFieldData
 	});
 }
 
