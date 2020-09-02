@@ -1,33 +1,68 @@
-import React from 'react';
+import React , { Component }from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeTaskStatusAction } from '../actions/actions';
 import RemoveButton from './RemoveButton';
 import TaskNameField from './TaskNameField';
 import EditTaskNameField from './EditTaskNameField';
 import '../styles/Task.css';
 
-export default class Task extends React.Component{
+const putStoreToTask = (state) => {
+	const { tasks } = state;
+
+	return (
+		{ tasks }
+	);
+}
+
+const putActionsToTask = (dispatch) => ({
+		changeTaskStatus: bindActionCreators(changeTaskStatusAction, dispatch),
+});
+
+class Task extends Component {
+	state = {
+		editMode: false
+	};
+
+	toggleEditMode = () => {
+		this.setState({ editMode: !this.state.editMode});
+	}
+
 	displayTaskField = () => {
-		if (this.props.editMode){
-			return (
-				<EditTaskNameField 
-					taskName={this.props.taskName}
-					changeTaskName={this.props.changeTaskName}
-				/>
-			);
-		}
-		return(
+		const { taskName } = this.props
+		return ( this.state.editMode ? 
+			<EditTaskNameField
+				taskName={taskName}
+				toggleEditMode={this.toggleEditMode}
+
+			/> :
 			<TaskNameField
-				taskName={this.props.taskName}
-				activateEditMode={this.props.activateEditMode}
+				taskName={taskName}
+				toggleEditMode={this.toggleEditMode}
 			/>	
 		);
 	}
 
+	changeStatus = (event) => {
+		if (event.target.tagName !== "LI") return;
+
+		const { changeTaskStatus } = this.props;
+		changeTaskStatus(event.target.id);
+	}
+
 	render() {
+		const {id, taskStatus} = this.props;
+
 		return (
-			<li className={this.props.taskStatus} onClick={this.props.changeTaskStatus}>
+			<li id={id} className={taskStatus} onClick={this.changeStatus}>
 				{this.displayTaskField()}
-				<RemoveButton removeTaskFromList={this.props.removeTask}/>
+				<RemoveButton />
 			</li>
 		);
 	}
 }
+
+export default connect (
+	putStoreToTask,
+	putActionsToTask)
+	(Task);
