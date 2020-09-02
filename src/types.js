@@ -1,5 +1,8 @@
 export const CHANGE_TASK_NAME =			'CHANGE_TASK_NAME';
 export const ADD_SUBMITTED_TASK =		'ADD_SUBMITTED_TASK';
 export const CHANGE_TASK_STATUS =		'CHANGE_TASK_STATUS';
+<<<<<<< HEAD
 export const ACTIVATE_EDIT_MODE =		'ACTIVATE_EDIT_MODE';
+=======
+>>>>>>> f6e3ead19acc7775c9e564d346072f52edf1cbcf
 export const REMOVE_TASK_FROM_LIST =	'REMOVE_TASK_FROM_LIST';

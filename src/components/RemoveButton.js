@@ -1,12 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { removeTaskFromListAction } from '../actions/actions';
 import '../styles/RemoveButton.css';
 
-export default class RemoveButton extends React.Component {
+const putStoreToRemoveButton = (state) => {
+	const { tasks } = state;
+
+	return (
+		{ tasks }
+	);
+}
+
+const putActionsToRemoveButton = (dispatch) => {
+	return ({
+		removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch)
+	});
+}
+
+class RemoveButton extends React.Component {
 
 	removeTask = (event) => {
 		const targetTask = event.target.parentNode;
+		const { removeTaskFromList } = this.props;
 
-		this.props.removeTaskFromList(targetTask);
+		removeTaskFromList(targetTask.id);
 	}
 
 	render() {
@@ -15,3 +33,9 @@ export default class RemoveButton extends React.Component {
 		);
 	}
 }
+
+
+export default connect (
+	putStoreToRemoveButton,
+	putActionsToRemoveButton)
+	(RemoveButton);

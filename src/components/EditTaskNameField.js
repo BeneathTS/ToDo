@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeTaskNameAction } from '../actions/actions';
 
-export default class EditTaskNameField extends Component{
+const putStoreToEditTaskNameField = (state) => {
+	const { tasks } = state;
+
+	return (
+		{ tasks }
+	);
+}
+
+const putActionsToEditTaskNameField = (dispatch) => ({
+	changeTaskName: bindActionCreators(changeTaskNameAction, dispatch)
+});
+
+class EditTaskNameField extends Component{
 	submitEditedTaskName = (event) => {
 		event.preventDefault();
-		const oldTaskName = this.props.taskName;
-		const newTaskName = event.type === "submit" ?
-			event.target.newTaskName.value :
-			event.target.value;
+		const { changeTaskName, toggleEditMode } = this.props;
 
-		this.props.changeTaskName(oldTaskName, newTaskName);
+		const newTaskName = ( event.type === "submit" ?
+			event.target.newTaskName.value :
+			event.target.value
+		);
+		const targetTaskID = (event.type === "submit" ?
+			event.target.parentNode.id:
+			event.target.parentNode.parentNode.id
+		);
+
+		changeTaskName({id: targetTaskID, name: newTaskName});
+		toggleEditMode();
 	}
 
 	componentDidMount() {
@@ -32,3 +54,8 @@ export default class EditTaskNameField extends Component{
 		);
 	}
 }
+
+export default connect(
+	putStoreToEditTaskNameField,
+	putActionsToEditTaskNameField)
+	(EditTaskNameField)
