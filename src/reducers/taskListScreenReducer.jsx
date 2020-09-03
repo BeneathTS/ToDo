@@ -20,11 +20,6 @@ export default function taskListScreenReducer(state, action) {
         taskStatus: '',
       });
 
-      localStorage.setItem(
-        'TaskList',
-        JSON.stringify({ ...state, tasks }),
-      );
-
       return ({ ...state, tasks });
 
     case CHANGE_TASK_STATUS:
@@ -36,10 +31,6 @@ export default function taskListScreenReducer(state, action) {
           : 'completeTaskStatus'
       );
 
-      localStorage.setItem(
-        'TaskList',
-        JSON.stringify({ ...state, tasks }),
-      );
       return ({ ...state, tasks });
 
     case CHANGE_TASK_NAME:
@@ -47,10 +38,6 @@ export default function taskListScreenReducer(state, action) {
 
       tasks[targetTaskIndex].taskName = action.payload.name;
 
-      localStorage.setItem(
-        'TaskList',
-        JSON.stringify({ ...state, tasks }),
-      );
       return ({ ...state, tasks });
 
     case REMOVE_TASK_FROM_LIST:
@@ -58,10 +45,6 @@ export default function taskListScreenReducer(state, action) {
 
       tasks.splice(targetTaskIndex, 1);
 
-      localStorage.setItem(
-        'TaskList',
-        JSON.stringify({ ...state, tasks }),
-      );
       return ({ ...state, tasks });
     default:
       return (state);
