@@ -2,12 +2,16 @@ import React, { Component, createRef } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeTaskNameAction } from '../actions/actions';
+import {
+  changeTaskNameOnSubmitAction,
+  changeTaskNameOnBlurAction
+} from '../actions/actions';
 
 const putStoreToEditTaskNameField = ({ tasks }) => ({ tasks });
 
 const putActionsToEditTaskNameField = (dispatch) => ({
-  changeTaskName: bindActionCreators(changeTaskNameAction, dispatch),
+  changeTaskNameOnBlur: bindActionCreators(changeTaskNameOnBlurAction, dispatch),
+  changeTaskNameOnSubmit: bindActionCreators(changeTaskNameOnSubmitAction, dispatch),
 });
 
 class EditTaskNameField extends Component {
@@ -21,34 +25,37 @@ class EditTaskNameField extends Component {
     this.editTaskNameField.current.select();
   }
 
-  submitEditedTaskName = (event) => {
+  submitEditedTaskNameBySubmit = (event) => {
     event.preventDefault();
-    const { changeTaskName, toggleEditMode } = this.props;
 
-    const newTaskName = (event.type === 'submit'
-      ? event.target.newTaskName.value
-      : event.target.value
-    );
-    const targetTaskID = (event.type === 'submit'
-      ? event.target.parentNode.id
-      : event.target.parentNode.parentNode.id
-    );
+    const { changeTaskNameOnSubmit, toggleEditMode } = this.props;
+    const newTaskName = event.target.newTaskName.value;
+    const targetTaskID = event.target.parentNode.id;
 
-    changeTaskName({ id: targetTaskID, name: newTaskName });
+    changeTaskNameOnSubmit({ id: targetTaskID, name: newTaskName });
+    toggleEditMode();
+  }
+
+  submitEditedTaskNameByBlur = (event) => {
+    const { changeTaskNameOnBlur, toggleEditMode } = this.props;
+    const targetTaskID = event.target.parentNode.parentNode.id;
+    const newTaskName = event.target.value;
+
+    changeTaskNameOnBlur({ id: targetTaskID, name: newTaskName });
     toggleEditMode();
   }
 
   render() {
     const { taskName } = this.props;
     return (
-      <form onSubmit={this.submitEditedTaskName}>
+      <form onSubmit={this.submitEditedTaskNameBySubmit}>
         <input
           ref={this.editTaskNameField}
           type="text"
           id="editTaskNameField"
           name="newTaskName"
           defaultValue={taskName}
-          onBlur={this.submitEditedTaskName}
+          onBlur={this.submitEditedTaskNameByBlur}
         />
       </form>
     );
@@ -57,7 +64,8 @@ class EditTaskNameField extends Component {
 
 EditTaskNameField.propTypes = {
   taskName: PropTypes.string.isRequired,
-  changeTaskName: PropTypes.func.isRequired,
+  changeTaskNameOnSubmit: PropTypes.func.isRequired,
+  changeTaskNameOnBlur: PropTypes.func.isRequired,
   toggleEditMode: PropTypes.func.isRequired,
 };
 

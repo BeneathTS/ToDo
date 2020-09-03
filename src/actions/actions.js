@@ -15,7 +15,12 @@ export const changeTaskStatusAction = (taskID) => ({
   payload: taskID,
 });
 
-export const changeTaskNameAction = (editFieldData) => ({
+export const changeTaskNameOnSubmitAction = (editFieldData) => ({
+  type: CHANGE_TASK_NAME,
+  payload: editFieldData,
+});
+
+export const changeTaskNameOnBlurAction = (editFieldData) => ({
   type: CHANGE_TASK_NAME,
   payload: editFieldData,
 });
