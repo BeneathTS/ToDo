@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   changeTaskNameOnSubmitAction,
-  changeTaskNameOnBlurAction
+  changeTaskNameOnBlurAction,
 } from '../actions/actions';
 
 const putStoreToEditTaskNameField = ({ tasks }) => ({ tasks });
