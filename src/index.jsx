@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import MainMenu from './components/MainMenu';
 import TaskListInfo from './components/TaskListInfo';
 import TaskListScreen from './components/TaskListScreen';
-import { taskListScreenReducer } from './reducers/taskListScreenReducer';
+import taskListScreenReducer from './reducers/taskListScreenReducer';
 import './styles/index.css';
 
 // const rootReducer = combineReducers({
@@ -13,27 +13,28 @@ import './styles/index.css';
 // });
 
 const initialState = (
-  JSON.parse(localStorage.getItem('TaskList')) || 
-  { tasks: [] }
+  JSON.parse(localStorage.getItem('TaskList'))
+  || { tasks: [] }
 );
 
 const store = createStore(
-  taskListScreenReducer, 
-  initialState
+  taskListScreenReducer,
+  initialState,
 );
 
-function App()  {
-  return (<>
-    <MainMenu />
-    <TaskListInfo />
-    <TaskListScreen />
-  </>);
-    
+function App() {
+  return (
+    <>
+      <MainMenu />
+      <TaskListInfo />
+      <TaskListScreen />
+    </>
+  );
 }
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('toDoList')
+  document.getElementById('toDoList'),
 );
