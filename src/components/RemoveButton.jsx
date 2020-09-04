@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { removeTaskFromListAction } from '../actions/actions';
-import '../styles/RemoveButton.css';
+import {removeButton} from '../styles/RemoveButton.module.css';
 
 const putStoreToRemoveButton = (state) => {
   const { tasks } = state;
@@ -17,7 +17,7 @@ const putActionsToRemoveButton = (dispatch) => ({
   removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch),
 });
 
-class RemoveButton extends React.Component {
+export class RemoveButton extends React.Component {
   removeTask = (event) => {
     const targetTask = event.target.parentNode;
     const { removeTaskFromList } = this.props;
@@ -30,7 +30,7 @@ class RemoveButton extends React.Component {
       <div
         role="button"
         tabIndex="-1"
-        className="removeButton"
+        className={removeButton}
         onClick={this.removeTask}
         onKeyDown={this.removeTask}
       >

@@ -6,7 +6,7 @@ import { changeTaskStatusAction } from '../actions/actions';
 import RemoveButton from './RemoveButton';
 import TaskNameField from './TaskNameField';
 import EditTaskNameField from './EditTaskNameField';
-import '../styles/Task.css';
+import { task } from  '../styles/Task.module.css';
 
 const putStoreToTask = ({ tasks }) => ({ tasks });
 
@@ -14,7 +14,7 @@ const putActionsToTask = (dispatch) => ({
   changeTaskStatus: bindActionCreators(changeTaskStatusAction, dispatch),
 });
 
-class Task extends Component {
+export class Task extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +60,7 @@ class Task extends Component {
       <li
         id={id}
         role="presentation" // Meh
-        className={taskStatus}
+        className={`${task} ${taskStatus}`}
         onClick={this.changeStatus}
         onKeyDown={this.changeStatus}
       >

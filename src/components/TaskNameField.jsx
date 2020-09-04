@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Task.css';
 import { PropTypes } from 'prop-types';
 
 export default function TaskNameField(props) {
@@ -7,7 +6,7 @@ export default function TaskNameField(props) {
 
   return (
     <span
-      className="task"
+      className="taskName"
       role="textbox"
       tabIndex="-1" // meh
       onClick={toggleEditMode}

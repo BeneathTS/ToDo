@@ -14,7 +14,7 @@ const putActionsToEditTaskNameField = (dispatch) => ({
   changeTaskNameOnSubmit: bindActionCreators(changeTaskNameOnSubmitAction, dispatch),
 });
 
-class EditTaskNameField extends Component {
+export class EditTaskNameField extends Component {
   constructor(props) {
     super(props);
     this.editTaskNameField = createRef();

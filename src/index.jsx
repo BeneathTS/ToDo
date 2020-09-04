@@ -8,14 +8,8 @@ import TaskListScreen from './components/TaskListScreen';
 import taskListScreenReducer from './reducers/taskListScreenReducer';
 import './styles/index.css';
 
-const initialState = (
-  JSON.parse(localStorage.getItem('TaskList'))
-  || { tasks: [] }
-);
-
 const store = createStore(
   taskListScreenReducer,
-  initialState,
 );
 
 store.subscribe (() => (

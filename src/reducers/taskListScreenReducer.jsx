@@ -4,8 +4,15 @@ import {
   CHANGE_TASK_NAME,
   REMOVE_TASK_FROM_LIST,
 } from '../types';
+import { completeTaskStatus } from '../styles/Task.module.css'
 
-export default function taskListScreenReducer(state, action) {
+
+const initialState = (
+  JSON.parse(localStorage.getItem('TaskList'))
+  || { tasks: [] }
+);
+
+export default function taskListScreenReducer(state = initialState, action) {
   const tasks = [...state.tasks];
   let taskID;
   let targetTaskIndex;
@@ -28,7 +35,7 @@ export default function taskListScreenReducer(state, action) {
       tasks[targetTaskIndex].taskStatus = (
         tasks[targetTaskIndex].taskStatus
           ? ''
-          : 'completeTaskStatus'
+          : completeTaskStatus
       );
 
       return ({ ...state, tasks });

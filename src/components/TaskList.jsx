@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Task from './Task';
-import '../styles/TaskList.css';
+import styles from '../styles/TaskList.module.css';
 
 const putStoreToTaskList = ({ tasks }) => ({ tasks });
 
-class TaskList extends React.Component {
+export class TaskList extends React.Component {
   createTasks = (task) => (
     <Task
       key={task.id}
@@ -18,11 +18,11 @@ class TaskList extends React.Component {
 
   render() {
     const { tasks } = this.props;
-    const taskList = tasks.map(this.createTasks);
+    const taskListItems = tasks.map(this.createTasks);
 
     return (
-      <ul className="tasks">
-        {taskList}
+      <ul className={styles.tasks}>
+        {taskListItems}
       </ul>
     );
   }

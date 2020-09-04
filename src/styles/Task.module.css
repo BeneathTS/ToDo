@@ -1,4 +1,4 @@
-.tasks li {
+li.task {
 	list-style-type: none;
 	transition: 0.2s;
 	position: relative;
@@ -15,7 +15,7 @@
 	background-color: #3f3f3f;
 }
 
-.tasks li:hover {
+li.task:hover {
 	transition: 0.2s;
 	background-color: rgb(83, 83, 83) !important;
 }
@@ -38,9 +38,4 @@ input[id="editTaskNameField"]{
 	text-align: center;
 	color: inherit;
 	background-color: inherit;
-}
-
-input::-ms-clear {
-	width: 0;
-	height: 0;
 }

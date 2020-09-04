@@ -17,3 +17,8 @@ body {
   /* border-radius: 23px / 19px; */
   background-color: #000;
 }
+
+input::-ms-clear {
+	width: 0;
+	height: 0;
+}

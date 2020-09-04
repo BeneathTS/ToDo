@@ -1,16 +1,15 @@
-ul.tasks{
+ul.tasks {
 	position: relative;
-	width: 100%;
-	height: calc(100% - 35px);
 	padding: 0;
 	margin: 0;
+	width: 100%;
+	height: calc(100% - 35px);
 	overflow-y: auto;
 	overflow-x: hidden;
 	/* border-radius: 0 0 23px 0 / 0 0 19px 0; */
 }
 
-ul.tasks::-webkit-scrollbar
-{
+ul.tasks::-webkit-scrollbar {
 	position: absolute;
 	left: 0;
 	width: 10px;

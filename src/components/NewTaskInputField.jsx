@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { addSubmittedTaskNameAction } from '../actions/actions';
-import '../styles/NewTaskInputField.css';
+import styles from '../styles/NewTaskInputField.module.css';
 
 const putStoreToNewTaskInputField = ({ tasks }) => ({ tasks });
 
@@ -11,7 +11,7 @@ const putActionsToNewTaskInputField = (dispatch) => ({
   addSubmittedTaskName: bindActionCreators(addSubmittedTaskNameAction, dispatch),
 });
 
-class NewTaskIputField extends React.Component {
+export class NewTaskIputField extends React.Component {
   placeholder = 'What we gonna do?';
 
   submitNewTask = (event) => {
@@ -28,7 +28,7 @@ class NewTaskIputField extends React.Component {
 
   render() {
     return (
-      <form className="inputField" onSubmit={this.submitNewTask}>
+      <form className={styles.inputField} onSubmit={this.submitNewTask}>
         <input
           type="text"
           id="newTaskInputField"
