@@ -12,7 +12,7 @@ export class TaskList extends React.Component {
       key={task.id}
       id={task.id}
       taskName={task.taskName}
-      taskStatus={task.taskStatus}
+      complete={task.complete}
     />
   )
 

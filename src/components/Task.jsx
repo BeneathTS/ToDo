@@ -6,7 +6,7 @@ import { changeTaskStatusAction } from '../actions/actions';
 import RemoveButton from './RemoveButton';
 import TaskNameField from './TaskNameField';
 import EditTaskNameField from './EditTaskNameField';
-import { task } from  '../styles/Task.module.css';
+import { task, completeTaskStatus } from  '../styles/Task.module.css';
 
 const putStoreToTask = ({ tasks }) => ({ tasks });
 
@@ -46,6 +46,10 @@ export class Task extends Component {
     );
   }
 
+  setTaskStatus = () => (
+    this.props.complete ? completeTaskStatus : ''
+  );
+
   changeStatus = (event) => {
     if (event.target.tagName !== 'LI') return;
 
@@ -54,13 +58,13 @@ export class Task extends Component {
   }
 
   render() {
-    const { id, taskStatus } = this.props;
+    const { id } = this.props;
 
     return (
       <li
         id={id}
         role="presentation" // Meh
-        className={`${task} ${taskStatus}`}
+        className={`${task} ${this.setTaskStatus()}`}
         onClick={this.changeStatus}
         onKeyDown={this.changeStatus}
       >
@@ -74,7 +78,7 @@ export class Task extends Component {
 Task.propTypes = {
   taskName: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  taskStatus: PropTypes.string.isRequired,
+  complete: PropTypes.bool.isRequired,
   changeTaskStatus: PropTypes.func.isRequired,
 };
 

@@ -4,8 +4,6 @@ import {
   CHANGE_TASK_NAME,
   REMOVE_TASK_FROM_LIST,
 } from '../types';
-import { completeTaskStatus } from '../styles/Task.module.css'
-
 
 const initialState = (
   JSON.parse(localStorage.getItem('TaskList'))
@@ -24,7 +22,7 @@ export default function taskListScreenReducer(state = initialState, action) {
       tasks.unshift({
         id: `${+taskID + 1}`,
         taskName: action.payload,
-        taskStatus: '',
+        complete: false,
       });
 
       return ({ ...state, tasks });
@@ -32,10 +30,10 @@ export default function taskListScreenReducer(state = initialState, action) {
     case CHANGE_TASK_STATUS:
       targetTaskIndex = tasks.findIndex((task) => (task.id === action.payload));
 
-      tasks[targetTaskIndex].taskStatus = (
-        tasks[targetTaskIndex].taskStatus
-          ? ''
-          : completeTaskStatus
+      tasks[targetTaskIndex].complete = (
+        tasks[targetTaskIndex].complete
+          ? false
+          : true
       );
 
       return ({ ...state, tasks });
