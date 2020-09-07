@@ -29,20 +29,20 @@ export class EditTaskNameField extends Component {
     event.preventDefault();
 
     const { changeTaskNameOnSubmit, toggleEditMode } = this.props;
-    const newTaskName = event.target.newTaskName.value;
-    const targetTaskID = event.target.parentNode.id;
+    const { id } = event.target.parentNode;
+    const { value: newTaskName } = event.target.editTaskNameField;
 
-    changeTaskNameOnSubmit({ id: targetTaskID, name: newTaskName });
-    toggleEditMode();
+    changeTaskNameOnSubmit({ id, newTaskName });
+    toggleEditMode(event);
   }
 
   submitEditedTaskNameByBlur = (event) => {
     const { changeTaskNameOnBlur, toggleEditMode } = this.props;
-    const targetTaskID = event.target.parentNode.parentNode.id;
-    const newTaskName = event.target.value;
+    const { id } = event.target.parentNode.parentNode;
+    const { value: newTaskName } = event.target;
 
-    changeTaskNameOnBlur({ id: targetTaskID, name: newTaskName });
-    toggleEditMode();
+    changeTaskNameOnBlur({ id, newTaskName });
+    toggleEditMode(event);
   }
 
   render() {
@@ -53,7 +53,7 @@ export class EditTaskNameField extends Component {
           ref={this.editTaskNameField}
           type="text"
           id="editTaskNameField"
-          name="newTaskName"
+          name="editTaskNameField"
           defaultValue={taskName}
           onBlur={this.submitEditedTaskNameByBlur}
         />

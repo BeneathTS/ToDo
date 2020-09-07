@@ -8,9 +8,9 @@ export default function TaskNameField(props) {
     <span
       className="taskName"
       role="textbox"
-      tabIndex="-1" // meh
+      tabIndex="-1"
       onClick={toggleEditMode}
-      onKeyPress={toggleEditMode}
+      onKeyPress={()=>{}}
     >
       {taskName}
     </span>
