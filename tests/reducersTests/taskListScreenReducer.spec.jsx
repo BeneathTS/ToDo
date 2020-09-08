@@ -15,7 +15,7 @@ const multItemsState = {
 }
 
 describe('taskListScreenReducer tests', () => {
-
+  
   it('Set Intital State in Store', () => {
     expect(taskListScreenReducer(testInitialState, 'No_Action')
     ).toEqual(testInitialState);
@@ -29,7 +29,7 @@ describe('taskListScreenReducer tests', () => {
       ]
     }
 
-    expect(taskListScreenReducer(initialTestStore, actions.addSubmittedTaskNameAction("TestValue"))
+    expect(taskListScreenReducer(initialTestStore, actions.addSubmittedTaskAction("TestValue"))
     ).toEqual(expectedTestStore);
   })
 
@@ -40,7 +40,7 @@ describe('taskListScreenReducer tests', () => {
     const doSubmitThreeTasks = (initialTestStore) => {
       let ct = -1;
       while (++ct < 3)
-        initialTestStore = taskListScreenReducer(initialTestStore, actions.addSubmittedTaskNameAction("TestValue"));
+        initialTestStore = taskListScreenReducer(initialTestStore, actions.addSubmittedTaskAction("TestValue"));
       return(initialTestStore);
     }
 
@@ -112,7 +112,7 @@ describe('taskListScreenReducer tests', () => {
       ]
     }
 
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnSubmitAction({id: '2', name: "EditedName"}))
+    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnSubmitAction({id: '2', newTaskName: "EditedName"}))
     ).toEqual(expectedTestStore);
   })
 
@@ -126,7 +126,7 @@ describe('taskListScreenReducer tests', () => {
       ]
     }
 
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnBlurAction({ id: '1', name: "EditedName" }))
+    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnBlurAction({ id: '1', newTaskName: "EditedName" }))
     ).toEqual(expectedTestStore);
   })
 

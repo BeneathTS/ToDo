@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTaskInputField tests Snapshot test 1`] = `
+<form
+  className="inputField"
+  onSubmit={[Function]}
+>
+  <input
+    id="newTaskInputField"
+    name="newTaskInputField"
+    placeholder="What we gonna do?"
+    type="text"
+  />
+</form>
+`;
