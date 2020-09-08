@@ -17,9 +17,14 @@
 	background-color: #2b2b2b;
 }
 
+.inputField input[id="newTaskInputField"]::placeholder{
+	transition: 0.8s;
+	color: #888;
+}
+
 .inputField input[id="newTaskInputField"]:focus::placeholder{
 	transition: 0.8s;
-	color: #222;
+	color: #111;
 }
 
 .inputField input[id="newTaskInputField"]:focus{

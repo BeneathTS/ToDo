@@ -10,6 +10,7 @@ body {
 }
 
 #toDoList {
+	overflow-x: hidden;
   height: 100%;
   /* margin: 20px; */
   border: 0;
