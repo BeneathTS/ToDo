@@ -10,41 +10,30 @@ describe('Task tests', () => {
     props = {
       id: "0",
       taskName: "TestValue",
-      complete: true,
+      complete: false,
       changeTaskStatus: jest.fn(),
       removeTaskFromList: jest.fn()
     }
   })
 
   it('Snapshot check', () => {
-    const TaskComponent = renderer.create(<Task {...props} complete={false} />).toJSON();
+    const TaskComponent = renderer.create(<Task {...props} />).toJSON();
 
     expect(TaskComponent).toMatchSnapshot();
   })
 
-  it('Task has \'task\' class', () => {
-   const TaskContainer = shallow(<Task {...props} />)
-
-   expect(TaskContainer.hasClass('task')).toBeTruthy();
-  });
-
   it('Task has \'completeTasksStatus\' class if get \'complete: true\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} />);
+    const TaskContainer = shallow(<Task {...props} complete={true} />);
 
     expect(TaskContainer.hasClass('completeTaskStatus')).toBeTruthy();
   });
 
   it('Task hasn\'t \'completeTasksStatus\' if get \'complete: false\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} complete={false} />);
+    const TaskContainer = shallow(<Task {...props}  />);
 
     expect(TaskContainer.hasClass('completeTaskStatus')).toBeFalsy();
   });
 
-  it('Task has RemoveButton', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-
-    expect(TaskContainer.find('RemoveButton').exists()).toBeTruthy();
-  });
   
   it('Task has TaskNameField if !editMode', () => {
     const TaskContainer = shallow(<Task {...props} />);
