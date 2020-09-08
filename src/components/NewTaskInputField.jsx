@@ -2,28 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { addSubmittedTaskNameAction } from '../actions/actions';
+import { addSubmittedTaskAction } from '../actions/actions';
 import styles from '../styles/NewTaskInputField.module.css';
 
 const putStoreToNewTaskInputField = ({ tasks }) => ({ tasks });
 
 const putActionsToNewTaskInputField = (dispatch) => ({
-  addSubmittedTaskName: bindActionCreators(addSubmittedTaskNameAction, dispatch),
+  addSubmittedTask: bindActionCreators(addSubmittedTaskAction, dispatch),
 });
 
-export class NewTaskIputField extends React.Component {
+export class NewTaskInputField extends React.Component {
   placeholder = 'What we gonna do?';
 
   submitNewTask = (event) => {
     event.preventDefault();
 
-    const { addSubmittedTaskName } = this.props;
-    const { target } = event;
-    const submittedTaskName = event.target.taskName.value;
-    if (!submittedTaskName) return;
+    const { addSubmittedTask } = this.props;
+    const { newTaskInputField } = event.target;
+    const submittedTask = newTaskInputField.value;
+    if (!submittedTask) return;
 
-    addSubmittedTaskName(submittedTaskName);
-    target.taskName.value = '';
+    addSubmittedTask(submittedTask);
+    newTaskInputField.value = '';
   }
 
   render() {
@@ -32,7 +32,7 @@ export class NewTaskIputField extends React.Component {
         <input
           type="text"
           id="newTaskInputField"
-          name="taskName"
+          name="newTaskInputField"
           placeholder={this.placeholder}
         />
       </form>
@@ -40,11 +40,11 @@ export class NewTaskIputField extends React.Component {
   }
 }
 
-NewTaskIputField.propTypes = {
+NewTaskInputField.propTypes = {
   addSubmittedTaskName: PropTypes.func.isRequired,
 };
 
 export default connect(
   putStoreToNewTaskInputField,
   putActionsToNewTaskInputField,
-)(NewTaskIputField);
+)(NewTaskInputField);

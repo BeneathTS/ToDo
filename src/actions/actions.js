@@ -5,9 +5,9 @@ import {
   REMOVE_TASK_FROM_LIST,
 } from '../types';
 
-export const addSubmittedTaskNameAction = (submittedTaskName) => ({
+export const addSubmittedTaskAction = (submittedTask) => ({
   type: ADD_SUBMITTED_TASK,
-  payload: submittedTaskName,
+  payload: submittedTask,
 });
 
 export const changeTaskStatusAction = (taskID) => ({

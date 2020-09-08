@@ -41,7 +41,7 @@ export default function taskListScreenReducer(state = initialState, action) {
     case CHANGE_TASK_NAME:
       targetTaskIndex = tasks.findIndex((task) => (task.id === action.payload.id));
 
-      tasks[targetTaskIndex].taskName = action.payload.name;
+      tasks[targetTaskIndex].taskName = action.payload.newTaskName;
 
       return ({ ...state, tasks });
 

@@ -1,28 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { removeTaskFromListAction } from '../actions/actions';
-import {removeButton} from '../styles/RemoveButton.module.css';
+import { removeButton } from '../styles/RemoveButton.module.css';
 
-const putStoreToRemoveButton = (state) => {
-  const { tasks } = state;
-
-  return (
-    { tasks }
-  );
-};
-
-const putActionsToRemoveButton = (dispatch) => ({
-  removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch),
-});
-
-export class RemoveButton extends React.Component {
+export default class RemoveButton extends React.Component {
   removeTask = (event) => {
-    const targetTask = event.target.parentNode;
-    const { removeTaskFromList } = this.props;
+    event.stopPropagation();
 
-    removeTaskFromList(targetTask.id);
+    const { removeTaskFromList } = this.props;
+    const { id } = event.target.parentNode;
+
+    removeTaskFromList(id);
   }
 
   render() {
@@ -32,19 +19,14 @@ export class RemoveButton extends React.Component {
         tabIndex="-1"
         className={removeButton}
         onClick={this.removeTask}
-        onKeyDown={this.removeTask}
+        onKeyDown={()=>{}}
       >
         x
       </div>
     );
-  }
+  };
 }
 
 RemoveButton.propTypes = {
   removeTaskFromList: PropTypes.func.isRequired,
 };
-
-export default connect(
-  putStoreToRemoveButton,
-  putActionsToRemoveButton,
-)(RemoveButton);
