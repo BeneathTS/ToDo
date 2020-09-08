@@ -1,7 +1,7 @@
 import React from 'react';
 import { Task } from '../../../src/components/Task';
 import { shallow } from 'enzyme';
-import { removeTaskFromListAction } from '../../../src/actions/actions';
+import renderer from 'react-test-renderer';
 
 describe('Task tests', () => {
   let props;
@@ -14,6 +14,12 @@ describe('Task tests', () => {
       changeTaskStatus: jest.fn(),
       removeTaskFromList: jest.fn()
     }
+  })
+
+  it('Snapshot check', () => {
+    const TaskComponent = renderer.create(<Task {...props} complete={false} />).toJSON();
+
+    expect(TaskComponent).toMatchSnapshot();
   })
 
   it('Task has \'task\' class', () => {
@@ -34,7 +40,7 @@ describe('Task tests', () => {
     expect(TaskContainer.hasClass('completeTaskStatus')).toBeFalsy();
   });
 
-  it('Task has RemoveButton(connected to store)', () => {
+  it('Task has RemoveButton', () => {
     const TaskContainer = shallow(<Task {...props} />);
 
     expect(TaskContainer.find('RemoveButton').exists()).toBeTruthy();

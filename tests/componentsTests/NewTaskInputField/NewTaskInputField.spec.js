@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 // import { shallow } from 'enzyme';
 
 describe('NewTaskInputField tests', () => {
-  it ('Snapshot test', () => {
+  it ('Snapshot check', () => {
     const mockFn = jest.fn();
     const NewTaskInputFieldComponent = renderer.create(<NewTaskInputField addSubmittedTaskName={mockFn} />).toJSON();
 

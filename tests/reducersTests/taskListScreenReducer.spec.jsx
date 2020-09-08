@@ -21,7 +21,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(testInitialState);
   })
 
-  it(`${types.ADD_SUBMITTED_TASK}: submit 1 task test`, () => {
+  it(`${types.ADD_SUBMITTED_TASK}: submit 1 task`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(testInitialState));
     const expectedTestStore = {
       tasks: [
@@ -33,7 +33,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it(`${types.ADD_SUBMITTED_TASK}: submit 3 tasks test`, () => {
+  it(`${types.ADD_SUBMITTED_TASK}: submit 3 tasks`, () => {
     let initialTestStore = JSON.parse(JSON.stringify(testInitialState));
     const expectedTestStore = JSON.parse(JSON.stringify(multItemsState));
 
@@ -48,7 +48,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 1 status test`, () => {
+  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 1 status`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
@@ -62,7 +62,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 2 status test`, () => {
+  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 2 status`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
@@ -76,7 +76,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
   
-  it(`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 1 test`, () => {
+  it(`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 1`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
@@ -89,7 +89,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it (`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 2 test`, () => {
+  it (`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 2`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
@@ -102,7 +102,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 2 on submit test`, () => {
+  it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 2 on submit`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
@@ -116,7 +116,7 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(expectedTestStore);
   })
 
-  it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 1 on blur test`, () => {
+  it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 1 on blur`, () => {
     const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
     const expectedTestStore = {
       tasks: [
