@@ -17,7 +17,7 @@ const multItemsState = {
 describe('taskListScreenReducer tests', () => {
   
   it('Set Intital State in Store', () => {
-    expect(taskListScreenReducer(testInitialState, 'No_Action')
+    expect(taskListScreenReducer(undefined, {})
     ).toEqual(testInitialState);
   })
 
@@ -38,8 +38,7 @@ describe('taskListScreenReducer tests', () => {
     const expectedTestStore = JSON.parse(JSON.stringify(multItemsState));
 
     const doSubmitThreeTasks = (initialTestStore) => {
-      let ct = -1;
-      while (++ct < 3)
+      for (let ct = -1; ++ct < 3; )
         initialTestStore = taskListScreenReducer(initialTestStore, actions.addSubmittedTaskAction("TestValue"));
       return(initialTestStore);
     }
