@@ -1,7 +1,7 @@
 import React from 'react';
 import { Task } from '../../../src/components/Task';
 import { shallow } from 'enzyme';
-import { removeTaskFromListAction } from '../../../src/actions/actions';
+import renderer from 'react-test-renderer';
 
 describe('Task tests', () => {
   let props;
@@ -10,35 +10,30 @@ describe('Task tests', () => {
     props = {
       id: "0",
       taskName: "TestValue",
-      complete: true,
+      complete: false,
       changeTaskStatus: jest.fn(),
       removeTaskFromList: jest.fn()
     }
   })
 
-  it('Task has \'task\' class', () => {
-   const TaskContainer = shallow(<Task {...props} />)
+  it('Snapshot check', () => {
+    const TaskComponent = renderer.create(<Task {...props} />).toJSON();
 
-   expect(TaskContainer.hasClass('task')).toBeTruthy();
-  });
+    expect(TaskComponent).toMatchSnapshot();
+  })
 
   it('Task has \'completeTasksStatus\' class if get \'complete: true\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} />);
+    const TaskContainer = shallow(<Task {...props} complete={true} />);
 
     expect(TaskContainer.hasClass('completeTaskStatus')).toBeTruthy();
   });
 
   it('Task hasn\'t \'completeTasksStatus\' if get \'complete: false\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} complete={false} />);
+    const TaskContainer = shallow(<Task {...props}  />);
 
     expect(TaskContainer.hasClass('completeTaskStatus')).toBeFalsy();
   });
 
-  it('Task has RemoveButton(connected to store)', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-
-    expect(TaskContainer.find('RemoveButton').exists()).toBeTruthy();
-  });
   
   it('Task has TaskNameField if !editMode', () => {
     const TaskContainer = shallow(<Task {...props} />);

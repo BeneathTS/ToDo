@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task tests Snapshot check 1`] = `
+<li
+  className="task "
+  id="0"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="presentation"
+>
+  <span
+    className="taskName"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="textbox"
+    tabIndex="-1"
+  >
+    TestValue
+  </span>
+  <div
+    className="removeButton"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    x
+  </div>
+</li>
+`;
