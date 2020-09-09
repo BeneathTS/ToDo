@@ -1,68 +1,66 @@
 import React from 'react';
 import { Task } from '../../../src/components/Task';
-import { shallow } from 'enzyme';
-import { removeTaskFromListAction } from '../../../src/actions/actions';
+import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 describe('Task tests', () => {
-  let props;
+  let props, TaskComponent;
 
   beforeEach(() => {
     props = {
       id: "0",
       taskName: "TestValue",
-      complete: true,
-      changeTaskStatus: jest.fn(),
-      removeTaskFromList: jest.fn()
-    }
+      complete: false,
+      changeTaskStatus: jest.fn(() => {return("lox!")}),
+      removeTaskFromList: jest.fn(),
+    };
+    TaskComponent = shallow(<Task {...props} />);
   })
 
-  it('Task has \'task\' class', () => {
-   const TaskContainer = shallow(<Task {...props} />)
+  it('Snapshot check', () => {
+    const TaskComponent = renderer.create(<Task {...props} />).toJSON();
 
-   expect(TaskContainer.hasClass('task')).toBeTruthy();
-  });
+    expect(TaskComponent).toMatchSnapshot();
+  })
 
   it('Task has \'completeTasksStatus\' class if get \'complete: true\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} />);
+    TaskComponent.setProps({complete: true});
 
-    expect(TaskContainer.hasClass('completeTaskStatus')).toBeTruthy();
+    expect(TaskComponent.hasClass('completeTaskStatus')).toBeTruthy();
   });
 
   it('Task hasn\'t \'completeTasksStatus\' if get \'complete: false\' prop', () => {
-    const TaskContainer = shallow(<Task {...props} complete={false} />);
-
-    expect(TaskContainer.hasClass('completeTaskStatus')).toBeFalsy();
+    expect(TaskComponent.hasClass('completeTaskStatus')).toBeFalsy();
   });
 
-  it('Task has RemoveButton(connected to store)', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-
-    expect(TaskContainer.find('RemoveButton').exists()).toBeTruthy();
-  });
   
   it('Task has TaskNameField if !editMode', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-
-    expect(TaskContainer.find('TaskNameField').exists()).toBeTruthy();
+    expect(TaskComponent.find('TaskNameField').exists()).toBeTruthy();
   });
 
   it('Task hasn\'t EditTaskNameField(connected to store) if !editMode', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-
-    expect(TaskContainer.find('Connect(EditTaskNameField)').exists()).toBeFalsy();
+    expect(TaskComponent.find('Connect(EditTaskNameField)').exists()).toBeFalsy();
   });
 
   it('Task has EditTaskNameField(connected to store) if editMode', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-    const NewStateTaskContainer = TaskContainer.setState({ editMode: true });
+    const NewStateTaskComponent = TaskComponent.setState({ editMode: true });
 
-    expect(NewStateTaskContainer.find('Connect(EditTaskNameField)').exists()).toBeTruthy();
+    expect(NewStateTaskComponent.find('Connect(EditTaskNameField)').exists()).toBeTruthy();
   });
 
   it('Task hasn\'t TaskNameField if editMode', () => {
-    const TaskContainer = shallow(<Task {...props} />);
-    const NewStateTaskContainer = TaskContainer.setState({ editMode: true });
+    const NewStateTaskComponent = TaskComponent.setState({ editMode: true });
 
-    expect(NewStateTaskContainer.find('TaskNameField').exists()).toBeFalsy();
+    expect(NewStateTaskComponent.find('TaskNameField').exists()).toBeFalsy();
+  });
+
+  it('Task should call changeStatus fnc by click and only 1', () => {
+    const spy = jest.spyOn(TaskComponent.instance(), 'changeStatus');
+    TaskComponent.instance().forceUpdate();
+
+    TaskComponent.simulate('click', { target: { id: '0' } });
+
+    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });
