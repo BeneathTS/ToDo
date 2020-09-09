@@ -15,7 +15,7 @@ li.task {
 	background-color: #3f3f3f;
 	color: rgb(172, 172, 172);
 	/* -webkit-animation: display 1s; */
-	animation: display 1s;
+	animation: display 0.8s;
 }
 
 /* @-webkit-keyframes display {
@@ -39,16 +39,13 @@ li.task {
 @keyframes display {
    0% {
 		background-color: rgb(122, 89, 45);
-		height: 0;
+		margin-top: -35px;
+		line-height: 0px;  
 		color: rgba(172, 172, 172, 0.0);
 	}
-	30% {
-		color: rgba(172, 172, 172, 0.01);
-	}
-	88% {
-		height: 35px;
-	}
   100% {
+		margin-top: 0px;
+		line-height: 35px;  
 		color: rgba(172, 172, 172);
 		background-color: rgb(63, 63, 63);
   }
