@@ -13,6 +13,20 @@
 	opacity: 0.2;
 	transition: 0.2s;
 	color: #999;
+	animation: display 1s;
+}
+
+@keyframes display {
+  0% {
+		opacity: 0;
+		height: 0;
+	}
+	88% {
+		height: 35px;
+	}
+  100% {
+		opacity: 0.2;
+  }
 }
 
 .removeButton:hover {

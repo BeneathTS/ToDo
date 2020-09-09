@@ -41,7 +41,7 @@ export class NewTaskInputField extends React.Component {
 }
 
 NewTaskInputField.propTypes = {
-  addSubmittedTaskName: PropTypes.func.isRequired,
+  addSubmittedTask: PropTypes.func.isRequired,
 };
 
 export default connect(

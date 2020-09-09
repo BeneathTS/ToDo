@@ -11,8 +11,47 @@ li.task {
 	font-family: sans-serif;
 	/* font-weight: 350; */
 	font-size: 18px;
-	color: #acacac;
+	/* color: --rgb(172, 172, 172); */
 	background-color: #3f3f3f;
+	color: rgb(172, 172, 172);
+	/* -webkit-animation: display 1s; */
+	animation: display 1s;
+}
+
+/* @-webkit-keyframes display {
+   0% {
+		background-color: rgb(122, 89, 45);
+		height: 0;
+		color: rgba(172, 172, 172, 0.0);
+	}
+	30% {
+		color: rgba(172, 172, 172, 0.01);
+	}
+	88% {
+		height: 35px;
+	}
+  100% {
+		color: rgba(172, 172, 172);
+		background-color: rgb(63, 63, 63);
+  }
+} */
+
+@keyframes display {
+   0% {
+		background-color: rgb(122, 89, 45);
+		height: 0;
+		color: rgba(172, 172, 172, 0.0);
+	}
+	30% {
+		color: rgba(172, 172, 172, 0.01);
+	}
+	88% {
+		height: 35px;
+	}
+  100% {
+		color: rgba(172, 172, 172);
+		background-color: rgb(63, 63, 63);
+  }
 }
 
 li.task:hover {
@@ -23,7 +62,7 @@ li.task:hover {
 .completeTaskStatus {
 	transition: 0.4s !important;
 	text-decoration: line-through !important;
-	color: #383838 !important;
+	color: rgb(52, 52, 52) !important;
 	background-color: #222 !important;
 }
 

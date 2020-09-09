@@ -7,7 +7,7 @@ import styles from '../styles/TaskList.module.css';
 const putStoreToTaskList = ({ tasks }) => ({ tasks });
 
 export class TaskList extends React.Component {
-  createTasks = (task) => (<Task {...task} />);
+  createTasks = (task) => (<Task key={task.id} {...task} />);
 
   render() {
     const { tasks } = this.props;
