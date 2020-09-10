@@ -8,7 +8,7 @@ import TaskListScreen from './components/TaskListScreen';
 import taskListScreenReducer from './reducers/taskListScreenReducer';
 import './styles/index.css';
 
-const store = createStore(
+export const store = createStore(
   taskListScreenReducer,
 );
 
