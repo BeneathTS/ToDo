@@ -11,7 +11,7 @@ const putActionsToNewTaskInputField = (dispatch) => ({
   addSubmittedTask: bindActionCreators(addSubmittedTaskAction, dispatch),
 });
 
-export class NewTaskInputField extends React.Component {
+class NewTaskInputField extends React.Component {
   placeholder = 'What we gonna do?';
 
   submitNewTask = (event) => {

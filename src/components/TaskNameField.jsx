@@ -10,7 +10,7 @@ export default function TaskNameField(props) {
       role="textbox"
       tabIndex="-1"
       onClick={toggleEditMode}
-      onKeyPress={()=>{}}
+      onKeyPress={() => {}}
     >
       {taskName}
     </span>

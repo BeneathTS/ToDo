@@ -31,9 +31,7 @@ export default function taskListScreenReducer(state = initialState, action) {
       targetTaskIndex = tasks.findIndex((task) => (task.id === action.payload));
 
       tasks[targetTaskIndex].complete = (
-        tasks[targetTaskIndex].complete
-          ? false
-          : true
+        !tasks[targetTaskIndex].complete
       );
 
       return ({ ...state, tasks });

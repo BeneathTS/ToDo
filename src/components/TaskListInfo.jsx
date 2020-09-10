@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   taskListInfo,
-  taskListNameStub
+  taskListNameStub,
 } from '../styles/TaskListInfo.module.css';
 
 export default function TaskListInfo() {

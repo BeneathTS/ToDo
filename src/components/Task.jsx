@@ -6,7 +6,9 @@ import { changeTaskStatusAction, removeTaskFromListAction } from '../actions/act
 import RemoveButton from './RemoveButton';
 import TaskNameField from './TaskNameField';
 import EditTaskNameField from './EditTaskNameField';
-import { task, completeTaskStatus } from  '../styles/Task.module.css';
+import {
+  task, completeTaskStatus, removedAnimation, taskHover,
+} from '../styles/Task.module.css';
 
 const putStoreToTask = ({ tasks }) => ({ tasks });
 
@@ -15,12 +17,17 @@ const putActionsToTask = (dispatch) => ({
   removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch),
 });
 
-export class Task extends Component {
+class Task extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editMode: false,
+      removed: false,
     };
+  }
+
+  markTaskAsRemoved = () => {
+    this.setState({ removed: true });
   }
 
   toggleEditMode = (event) => {
@@ -50,28 +57,38 @@ export class Task extends Component {
     );
   }
 
-  setTaskStatus = () => (
-    this.props.complete ? completeTaskStatus : ''
+  setTaskStatus = (complete) => (
+    complete ? completeTaskStatus : ''
   );
 
-  changeStatus = ({target}) => {
+  changeStatus = ({ target }) => {
     const { changeTaskStatus } = this.props;
     changeTaskStatus(target.id);
   }
 
   render() {
-    const { id, removeTaskFromList } = this.props;
-
+    const { id, removeTaskFromList, complete } = this.props;
+    const { removed } = this.state;
     return (
       <li
         id={id}
         role="presentation"
-        className={`${task} ${this.setTaskStatus()}`}
+        className={`
+          ${task}
+          ${this.setTaskStatus(complete)}
+          ${removed ? '' : taskHover}
+          ${removed ? removedAnimation : ''}
+        `}
         onClick={this.changeStatus}
-        onKeyDown={()=>{}}
+        onKeyDown={() => {}}
       >
         {this.displayTaskField()}
-        <RemoveButton removeTaskFromList={removeTaskFromList}/>
+        <RemoveButton
+          removeTaskFromList={removed
+            ? () => {}
+            : removeTaskFromList}
+          markTaskAsRemoved={this.markTaskAsRemoved}
+        />
       </li>
     );
   }
@@ -82,6 +99,7 @@ Task.propTypes = {
   id: PropTypes.string.isRequired,
   complete: PropTypes.bool.isRequired,
   changeTaskStatus: PropTypes.func.isRequired,
+  removeTaskFromList: PropTypes.func.isRequired,
 };
 
 export default connect(
