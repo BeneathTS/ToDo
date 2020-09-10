@@ -13,6 +13,64 @@
 	opacity: 0.2;
 	transition: 0.2s;
 	color: #999;
+	animation: display 0.5s;
+}
+
+.removedAnimation{
+	animation: hide 0.25s !important;
+}
+
+@-webkit-keyframes hide {
+  0% {
+		height: 35px;
+		line-height: 35px;
+		font-size: 16px;
+	}
+  100% {
+		height: 0px;
+		line-height: 0px; 
+		font-size: 0px;
+  }
+}
+
+@keyframes hide {
+  0% {
+		height: 35px;
+		line-height: 35px;
+		font-size: 16px;
+	}
+  100% {
+		height: 0px;
+		line-height: 0px; 
+		font-size: 0px;
+  }
+}
+
+@-webkit-keyframes display {
+  0% {
+		opacity: 0;
+		height: 0px;
+	}
+	88% {
+		height: 35px;
+	}
+  100% {
+		opacity: 0.2;
+  }
+}
+
+
+@keyframes display {
+  0% {
+		opacity: 0;
+		height: 0px;
+	}
+	88% {
+		height: 35px;
+	}
+  100% {
+		opacity: 0.2;
+  }
 }
 
 .removeButton:hover {

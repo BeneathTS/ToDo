@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
@@ -6,8 +7,8 @@ import styles from '../styles/TaskList.module.css';
 
 const putStoreToTaskList = ({ tasks }) => ({ tasks });
 
-export class TaskList extends React.Component {
-  createTasks = (task) => (<Task {...task} />);
+class TaskList extends React.Component {
+  createTasks = (task) => (<Task key={task.id} {...task} />);
 
   render() {
     const { tasks } = this.props;
