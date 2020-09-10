@@ -1,5 +1,5 @@
 import React from 'react';
-import NewTaskInputField from '../../../src/components/NewTaskInputField';
+import NewTaskInputField from '../NewTaskInputField';
 import configureMockStore from 'redux-mock-store';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';

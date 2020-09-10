@@ -2,8 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import Task from './Task';
-import styles from '../styles/TaskList.module.css';
+import Task from '../Task/Task';
+import styles from './TaskList.module.css';
 
 const putStoreToTaskList = ({ tasks }) => ({ tasks });
 

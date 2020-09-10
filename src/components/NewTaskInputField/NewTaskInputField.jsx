@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { addSubmittedTaskAction } from '../actions/actions';
-import styles from '../styles/NewTaskInputField.module.css';
+import { addSubmittedTaskAction } from '../../actions/actions';
+import styles from './NewTaskInputField.module.css';
 
 const putStoreToNewTaskInputField = ({ tasks }) => ({ tasks });
 

@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 import {
   changeTaskNameOnSubmitAction,
   changeTaskNameOnBlurAction,
-} from '../actions/actions';
+} from '../../actions/actions';
+import './EditTaskNameField.module.css';
 
 const putStoreToEditTaskNameField = ({ tasks }) => ({ tasks });
 

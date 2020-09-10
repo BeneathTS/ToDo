@@ -1,5 +1,5 @@
-import taskListScreenReducer from '../../src/reducers/taskListScreenReducer';
-import * as types from '../../src/types';
+import taskListScreenReducer from '../taskListScreenReducer';
+import * as types from '../../types';
 
 const testInitialState = {
   tasks: [ ]

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import MainMenu from './components/MainMenu';
-import TaskListInfo from './components/TaskListInfo';
-import TaskListScreen from './components/TaskListScreen';
+import MainMenu from './components/MainMenu/MainMenu';
+import TaskListInfo from './components/TaskListInfo/TaskListInfo';
+import TaskListScreen from './components/TaskListScreen/TaskListScreen';
 import {store} from './store';
-import './styles/index.css';
+import './index.css';
 
 function App() {
   return (

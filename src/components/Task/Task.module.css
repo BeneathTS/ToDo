@@ -102,18 +102,5 @@ li.task {
 	transition: 0.4s !important;
 	text-decoration: line-through !important;
 	color: rgb(52, 52, 52) !important;
-	background-color: #222;
-}
-
-input[id="editTaskNameField"]{
-	width: 100%;
-	height: 32px;
-	border: 0;
-	margin: 0;
-	outline: 0;
-	font-family: sans-serif;
-	font-size: 18px;
-	text-align: center;
-	color: inherit;
-	background-color: inherit;
+	background-color: #222 ;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from '../../../src/components/Task';
+import { Task } from '../Task';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 

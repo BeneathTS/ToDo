@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { removeButton, removedAnimation } from '../styles/RemoveButton.module.css';
+import { removeButton, removedAnimation } from './RemoveButton.module.css';
 
 export default class RemoveButton extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/MainMenu.css';
+import './MainMenu.css';
 
 // const UserProfileImage = () =>
 //  <div className="profileImageStub"/>;
