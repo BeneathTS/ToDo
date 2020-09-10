@@ -2,7 +2,7 @@ import React from 'react';
 import {
   taskListInfo,
   taskListNameStub,
-} from '../styles/TaskListInfo.module.css';
+} from './TaskListInfo.module.css';
 
 export default function TaskListInfo() {
   return (

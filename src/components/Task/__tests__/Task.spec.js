@@ -1,6 +1,6 @@
 import React from 'react';
-import { Task } from '../../../src/components/Task';
-import { shallow, mount } from 'enzyme';
+import { Task } from '../Task';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 describe('Task tests', () => {

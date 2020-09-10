@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeTaskStatusAction, removeTaskFromListAction } from '../actions/actions';
-import RemoveButton from './RemoveButton';
-import TaskNameField from './TaskNameField';
-import EditTaskNameField from './EditTaskNameField';
+import { changeTaskStatusAction, removeTaskFromListAction } from '../../actions/actions';
+import RemoveButton from '../RemoveButton/RemoveButton';
+import TaskNameField from '../TaskNameField/TaskNameField';
+import EditTaskNameField from '../EditTaskNameField/EditTaskNameField';
 import {
   task, completeTaskStatus, removedAnimation, taskHover,
-} from '../styles/Task.module.css';
+} from './Task.module.css';
 
 const putStoreToTask = ({ tasks }) => ({ tasks });
 
@@ -17,7 +17,7 @@ const putActionsToTask = (dispatch) => ({
   removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch),
 });
 
-class Task extends Component {
+export class Task extends Component {
   constructor(props) {
     super(props);
     this.state = {

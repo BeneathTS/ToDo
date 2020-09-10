@@ -1,7 +1,7 @@
 import React from 'react';
-import TaskList from './TaskList';
-import NewTaskInputField from './NewTaskInputField';
-import { taskListScreen } from '../styles/TaskListScreen.module.css';
+import TaskList from '../TaskList/TaskList';
+import NewTaskInputField from '../NewTaskInputField/NewTaskInputField';
+import { taskListScreen } from './TaskListScreen.module.css';
 
 export default function TaskListScreen() {
   return (

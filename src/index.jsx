@@ -1,22 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import MainMenu from './components/MainMenu';
-import TaskListInfo from './components/TaskListInfo';
-import TaskListScreen from './components/TaskListScreen';
-import taskListScreenReducer from './reducers/taskListScreenReducer';
-import './styles/index.css';
-
-const store = createStore(
-  taskListScreenReducer,
-);
-
-store.subscribe (() => (
-  localStorage.setItem(
-    'TaskList',
-    JSON.stringify(store.getState()),
-)));
+import MainMenu from './components/MainMenu/MainMenu';
+import TaskListInfo from './components/TaskListInfo/TaskListInfo';
+import TaskListScreen from './components/TaskListScreen/TaskListScreen';
+import {store} from './store';
+import './index.css';
 
 function App() {
   return (

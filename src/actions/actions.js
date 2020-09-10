@@ -4,28 +4,74 @@ import {
   CHANGE_TASK_NAME,
   REMOVE_TASK_FROM_LIST,
 } from '../types';
+import { store } from '../store'
 
-export const addSubmittedTaskAction = (submittedTask) => ({
-  type: ADD_SUBMITTED_TASK,
-  payload: submittedTask,
-});
+export const addSubmittedTaskAction = (submittedTask) => {
+  const state = store.getState();
+  const tasks = [...state.tasks];
+  const taskID = tasks[0] ? tasks[0].id : -1;
 
-export const changeTaskStatusAction = (taskID) => ({
-  type: CHANGE_TASK_STATUS,
-  payload: taskID,
-});
+  tasks.unshift({
+    id: `${+taskID + 1}`,
+    taskName: submittedTask,
+    complete: false,
+  });
 
-export const changeTaskNameOnSubmitAction = (editFieldData) => ({
-  type: CHANGE_TASK_NAME,
-  payload: editFieldData,
-});
+  return ({
+    type: ADD_SUBMITTED_TASK,
+    payload: tasks})
+};
 
-export const changeTaskNameOnBlurAction = (editFieldData) => ({
-  type: CHANGE_TASK_NAME,
-  payload: editFieldData,
-});
+export const changeTaskStatusAction = (taskID) => {
+  const state = store.getState();
+  const tasks = [...state.tasks];
+  const targetTaskIndex = tasks.findIndex((task) => (task.id === taskID));
 
-export const removeTaskFromListAction = (taskID) => ({
-  type: REMOVE_TASK_FROM_LIST,
-  payload: taskID,
-});
+  tasks[targetTaskIndex].complete = (
+    !tasks[targetTaskIndex].complete
+  );
+
+  return({
+    type: CHANGE_TASK_STATUS,
+    payload: tasks,
+  });
+};
+
+export const changeTaskNameOnSubmitAction = (id, newTaskName) => {
+  const state = store.getState();
+  const tasks = [...state.tasks];
+  const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
+
+  tasks[targetTaskIndex].taskName = newTaskName;
+
+  return ({
+    type: CHANGE_TASK_NAME,
+    payload: tasks,
+  });
+};
+
+export const changeTaskNameOnBlurAction = (id, newTaskName) => {
+  const state = store.getState();
+  const tasks = [...state.tasks];
+  const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
+
+  tasks[targetTaskIndex].taskName = newTaskName;
+
+  return ({
+    type: CHANGE_TASK_NAME,
+    payload: tasks,
+  });
+};
+
+export const removeTaskFromListAction = (taskID) => {
+  const state = store.getState();
+  const tasks = [...state.tasks];
+  const targetTaskIndex = tasks.findIndex((task) => (task.id === taskID));
+
+  tasks.splice(targetTaskIndex, 1);
+  
+  return ({
+    type: REMOVE_TASK_FROM_LIST,
+    payload: tasks,
+  })
+};
