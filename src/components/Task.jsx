@@ -17,7 +17,7 @@ const putActionsToTask = (dispatch) => ({
   removeTaskFromList: bindActionCreators(removeTaskFromListAction, dispatch),
 });
 
-class Task extends Component {
+export class Task extends Component {
   constructor(props) {
     super(props);
     this.state = {

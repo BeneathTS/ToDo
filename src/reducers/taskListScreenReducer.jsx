@@ -10,7 +10,7 @@ const initialState = (
   || { tasks: [] }
 );
 
-export default function taskListScreenReducer(state = initialState, {type, payload: tasks}) {
+export default function taskListScreenReducer(state = initialState, { type, payload: tasks }) {
   switch (type) {
     case ADD_SUBMITTED_TASK:
       return ({ ...state, tasks });

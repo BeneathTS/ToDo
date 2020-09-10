@@ -1,18 +1,13 @@
 import taskListScreenReducer from '../../src/reducers/taskListScreenReducer';
-import * as actions from '../../src/actions/actions';
 import * as types from '../../src/types';
 
 const testInitialState = {
-  tasks: [],
+  tasks: [ ]
 };
 
-const multItemsState = {
-  tasks: [
-    { id: "2", taskName: "TestValue", complete: false, },
-    { id: "1", taskName: "TestValue", complete: false, },
+const payload = [
     { id: "0", taskName: "TestValue", complete: false, },
-  ]
-}
+];
 
 describe('taskListScreenReducer tests', () => {
   
@@ -21,112 +16,32 @@ describe('taskListScreenReducer tests', () => {
     ).toEqual(testInitialState);
   })
 
-  it(`${types.ADD_SUBMITTED_TASK}: submit 1 task`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(testInitialState));
-    const expectedTestStore = {
-      tasks: [
-        {id: "0", taskName: "TestValue", complete: false,},
-      ]
-    }
+  it(`${types.ADD_SUBMITTED_TASK}`, () => {
+    const type = types.ADD_SUBMITTED_TASK;
 
-    expect(taskListScreenReducer(initialTestStore, actions.addSubmittedTaskAction("TestValue"))
-    ).toEqual(expectedTestStore);
+    expect(taskListScreenReducer(testInitialState, {type, payload})
+    ).toEqual({tasks: payload});
   })
 
-  it(`${types.ADD_SUBMITTED_TASK}: submit 3 tasks`, () => {
-    let initialTestStore = JSON.parse(JSON.stringify(testInitialState));
-    const expectedTestStore = JSON.parse(JSON.stringify(multItemsState));
+  it(`${types.CHANGE_TASK_STATUS}`, () => {
+    const type = types.CHANGE_TASK_STATUS;
 
-    const doSubmitThreeTasks = (initialTestStore) => {
-      for (let ct = -1; ++ct < 3; )
-        initialTestStore = taskListScreenReducer(initialTestStore, actions.addSubmittedTaskAction("TestValue"));
-      return(initialTestStore);
-    }
-
-    expect(doSubmitThreeTasks(initialTestStore)
-    ).toEqual(expectedTestStore);
-  })
-
-  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 1 status`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "2", taskName: "TestValue", complete: false, },
-        { id: "1", taskName: "TestValue", complete: true, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
-
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskStatusAction("1"))
-    ).toEqual(expectedTestStore);
-  })
-
-  it(`${types.CHANGE_TASK_STATUS}: change task w/ id 2 status`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "2", taskName: "TestValue", complete: true, },
-        { id: "1", taskName: "TestValue", complete: false, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
-
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskStatusAction("2"))
-    ).toEqual(expectedTestStore);
+    expect(taskListScreenReducer(testInitialState, { type, payload })
+    ).toEqual({tasks: payload});
   })
   
-  it(`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 1`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "2", taskName: "TestValue", complete: false, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
+  it(`${types.REMOVE_TASK_FROM_LIST}`, () => {
+    const type = types.REMOVE_TASK_FROM_LIST;
 
-    expect(taskListScreenReducer(initialTestStore, actions.removeTaskFromListAction('1'))
-    ).toEqual(expectedTestStore);
-  })
-
-  it (`${types.REMOVE_TASK_FROM_LIST}: remove task w/ id 2`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "1", taskName: "TestValue", complete: false, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
-
-    expect(taskListScreenReducer(initialTestStore, actions.removeTaskFromListAction('2'))
-    ).toEqual(expectedTestStore);
+    expect(taskListScreenReducer(testInitialState, {type, payload})
+    ).toEqual({tasks: payload});
   })
 
   it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 2 on submit`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "2", taskName: "EditedName", complete: false, },
-        { id: "1", taskName: "TestValue", complete: false, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
+    const type = types.CHANGE_TASK_NAME;
 
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnSubmitAction({id: '2', newTaskName: "EditedName"}))
-    ).toEqual(expectedTestStore);
-  })
-
-  it(`${types.CHANGE_TASK_NAME}: edit task name w/ id 1 on blur`, () => {
-    const initialTestStore = JSON.parse(JSON.stringify(multItemsState));
-    const expectedTestStore = {
-      tasks: [
-        { id: "2", taskName: "TestValue", complete: false, },
-        { id: "1", taskName: "EditedName", complete: false, },
-        { id: "0", taskName: "TestValue", complete: false, },
-      ]
-    }
-
-    expect(taskListScreenReducer(initialTestStore, actions.changeTaskNameOnBlurAction({ id: '1', newTaskName: "EditedName" }))
-    ).toEqual(expectedTestStore);
+    expect(taskListScreenReducer(testInitialState, {type, payload})
+    ).toEqual({tasks: payload});
   })
 
 });

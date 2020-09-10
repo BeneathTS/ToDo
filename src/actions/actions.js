@@ -4,7 +4,7 @@ import {
   CHANGE_TASK_NAME,
   REMOVE_TASK_FROM_LIST,
 } from '../types';
-import { store } from '../index'
+import { store } from '../store'
 
 export const addSubmittedTaskAction = (submittedTask) => {
   const state = store.getState();
@@ -37,7 +37,7 @@ export const changeTaskStatusAction = (taskID) => {
   });
 };
 
-export const changeTaskNameOnSubmitAction = ({ id, newTaskName }) => {
+export const changeTaskNameOnSubmitAction = (id, newTaskName) => {
   const state = store.getState();
   const tasks = [...state.tasks];
   const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
@@ -50,7 +50,7 @@ export const changeTaskNameOnSubmitAction = ({ id, newTaskName }) => {
   });
 };
 
-export const changeTaskNameOnBlurAction = ({ id, newTaskName }) => {
+export const changeTaskNameOnBlurAction = (id, newTaskName) => {
   const state = store.getState();
   const tasks = [...state.tasks];
   const targetTaskIndex = tasks.findIndex((task) => (task.id === id));

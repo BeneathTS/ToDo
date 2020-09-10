@@ -32,7 +32,7 @@ class EditTaskNameField extends Component {
     const { id } = event.target.parentNode;
     const { value: newTaskName } = event.target.editTaskNameField;
 
-    changeTaskNameOnSubmit({ id, newTaskName });
+    changeTaskNameOnSubmit(id, newTaskName);
     toggleEditMode(event);
   }
 
@@ -41,7 +41,7 @@ class EditTaskNameField extends Component {
     const { id } = event.target.parentNode.parentNode;
     const { value: newTaskName } = event.target;
 
-    changeTaskNameOnBlur({ id, newTaskName });
+    changeTaskNameOnBlur(id, newTaskName);
     toggleEditMode(event);
   }
 

@@ -2,7 +2,12 @@
 
 exports[`Task tests Snapshot check 1`] = `
 <li
-  className="task "
+  className="
+          task
+          
+          taskHover
+          
+        "
   id="0"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -18,7 +23,10 @@ exports[`Task tests Snapshot check 1`] = `
     TestValue
   </span>
   <div
-    className="removeButton"
+    className="
+          removeButton
+          
+        "
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"

@@ -1,19 +1,25 @@
 import React from 'react';
-import { NewTaskInputField } from '../../../src/components/NewTaskInputField';
+import NewTaskInputField from '../../../src/components/NewTaskInputField';
+import configureMockStore from 'redux-mock-store';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
 
 describe('NewTaskInputField tests', () => {
-  let props;
+  const mockStore = configureMockStore();
+  let props, store;
 
   beforeEach(() => {
+    store = mockStore();
     props = {
       addSubmittedTaskName: jest.fn(),
     }
   });
 
   it ('Snapshot check', () => {
-    const NewTaskInputFieldComponent = renderer.create(<NewTaskInputField {...props} />).toJSON();
+    const NewTaskInputFieldComponent = renderer.create(
+      <Provider store={store}>
+        <NewTaskInputField {...props}/>).toJSON()
+      </Provider>);
 
     expect(NewTaskInputFieldComponent).toMatchSnapshot();
   });
