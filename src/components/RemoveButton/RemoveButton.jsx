@@ -1,13 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { removeButton, removedAnimation } from './RemoveButton.module.css';
+import { removeButton } from './RemoveButton.module.css';
 
 export default class RemoveButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { removed: false };
-  }
-
   removeTask = (event) => {
     event.stopPropagation();
 
@@ -15,23 +10,18 @@ export default class RemoveButton extends React.Component {
     const { id } = event.target.parentNode;
 
     markTaskAsRemoved();
-    this.setState({ removed: true });
 
     setTimeout(() => removeTaskFromList(id), 250);
   }
 
   render() {
-    const { removed } = this.state;
     return (
       <div
         role="button"
         tabIndex="-1"
-        className={`
-          ${removeButton}
-          ${removed ? removedAnimation : ''}
-        `}
+        className={removeButton}
         onClick={this.removeTask}
-        onKeyDown={() => {}}
+        onKeyDown={() => {}} // meh
       >
         x
       </div>

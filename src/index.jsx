@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import MainMenu from './components/MainMenu/MainMenu';
 import TaskListInfo from './components/TaskListInfo/TaskListInfo';
 import TaskListScreen from './components/TaskListScreen/TaskListScreen';
-import {store} from './store';
+import { store } from './store';
 import './index.css';
 
 function App() {

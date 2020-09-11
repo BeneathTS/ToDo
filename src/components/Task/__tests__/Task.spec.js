@@ -1,30 +1,31 @@
 import React from 'react';
-import { Task } from '../Task';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { Task } from '../Task';
 
 describe('Task tests', () => {
-  let props, TaskComponent;
+  let props; let
+    TaskComponent;
 
   beforeEach(() => {
     props = {
-      id: "0",
-      taskName: "TestValue",
+      id: '0',
+      taskName: 'TestValue',
       complete: false,
-      changeTaskStatus: jest.fn(() => {return("lox!")}),
+      changeTaskStatus: jest.fn(() => ('lox!')),
       removeTaskFromList: jest.fn(),
     };
     TaskComponent = shallow(<Task {...props} />);
-  })
+  });
 
   it('Snapshot check', () => {
     const TaskComponent = renderer.create(<Task {...props} />).toJSON();
 
     expect(TaskComponent).toMatchSnapshot();
-  })
+  });
 
   it('Task has \'completeTasksStatus\' class if get \'complete: true\' prop', () => {
-    TaskComponent.setProps({complete: true});
+    TaskComponent.setProps({ complete: true });
 
     expect(TaskComponent.hasClass('completeTaskStatus')).toBeTruthy();
   });
@@ -33,7 +34,6 @@ describe('Task tests', () => {
     expect(TaskComponent.hasClass('completeTaskStatus')).toBeFalsy();
   });
 
-  
   it('Task has TaskNameField if !editMode', () => {
     expect(TaskComponent.find('TaskNameField').exists()).toBeTruthy();
   });

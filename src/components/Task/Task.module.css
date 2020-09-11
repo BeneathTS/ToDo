@@ -1,4 +1,5 @@
-li.task {
+.task {
+	cursor: default;
 	list-style-type: none;
 	transition: 0.2s;
 	position: relative;
@@ -9,98 +10,52 @@ li.task {
 	line-height: 35px;  
 	text-align: center;
 	font-family: sans-serif;
-	/* font-weight: 350; */
 	font-size: 18px;
-	/* color: --rgb(172, 172, 172); */
 	color: rgb(172, 172, 172);
-	-webkit-animation: display 0.5s;
+	background-color: rgb(63, 63, 63);
 	animation: display 0.5s;
-	/* animation-fill-mode: forwards; */
-	
 }
 
-@-webkit-keyframes display {
-  0% {
-	 margin-top: -35px;
-	 line-height: 0px;  
-	 color: rgba(172, 172, 172, 0.0);
-	 background-color: rgb(122, 89, 45);
-	}
-  100% {
-		margin-top: 0px;
-		line-height: 35px;  
-		color: rgba(172, 172, 172);
-		background-color: rgb(63, 63, 63);
-  }
+li.removedAnimation {
+	background-color: rgb(105, 1, 1);
+	animation: hide 0.25s;
 }
 
-.removedAnimation {
-	animation: hide 0.25s !important;
-}
-
-@-webkit-keyframes hide {
-  0% {
-	 height: 35px;
-	 line-height: 35px;
-	 font-size: 18px;
-	 color: rgba(172, 172, 172, 1);
-	 background-color: rgba(63, 63, 63, 1);
-	}
-	50% {
-		color: rgba(172, 172, 172, 0.0);
-	}
-	100% {
-		height: 0px;
-		line-height: 0px;
-		font-size: 0px;
-		color: rgba(172, 172, 172, 0.0);
-		background-color: rgba(182, 0, 0, 0.43);
-  }
+.removedAnimation * {
+	pointer-events: none;
+	animation: hide 0.25s;
 }
 
 @keyframes hide {
-  0% {
-	 height: 35px;
-	 line-height: 35px;
-	 font-size: 18px;
-	 color: rgba(172, 172, 172, 1);
-	 background-color: rgba(63, 63, 63, 1);
-	}
-	50% {
-		color: rgba(172, 172, 172, 0.0);
-	}
-	100% {
+	to {
 		height: 0px;
 		line-height: 0px;
 		font-size: 0px;
-		color: rgba(172, 172, 172, 0.0);
-		background-color: rgba(182, 0, 0, 0.43);
   }
+	from {}
 }
 
 @keyframes display {
- 0% {
-	 margin-top: -35px;
-	 line-height: 0px;  
-	 color: rgba(172, 172, 172, 0.0);
-	 background-color: rgb(122, 89, 45);
+	to {}
+	from {
+		margin-top: -35px;
+		line-height: 0px;  
+		background-color: rgb(122, 89, 45);
 	}
-  100% {
-		margin-top: 0px;
-		line-height: 35px;  
-		color: rgba(172, 172, 172);
-		background-color: rgb(63, 63, 63);
-  }
 }
 
 .taskHover:hover{
-	transition: 0.2s;
-	background-color: rgb(83, 83, 83);
+	background-color: rgb(122, 89, 45);
 }
 
 .completeTaskStatus {
-	transition: 0.4s !important;
-	text-decoration: line-through !important;
-	color: rgb(52, 52, 52) !important;
-	background-color: #222 ;
+	opacity: 1;
+	transition: color 0.7s, opacity 0.7s;
+	text-decoration: line-through;
+	color: rgb(52, 52, 52);
+	background-color: #222;
+}
+
+.completeTaskStatus:hover {
+	opacity: 0.7;
 }

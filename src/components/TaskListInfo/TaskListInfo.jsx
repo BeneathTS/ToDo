@@ -4,10 +4,10 @@ import {
   taskListNameStub,
 } from './TaskListInfo.module.css';
 
-export default function TaskListInfo() {
-  return (
-    <div className={taskListInfo}>
-      <span className={taskListNameStub}>Today</span>
-    </div>
-  );
-}
+const TaskListInfo = () => (
+  <div className={taskListInfo}>
+    <span className={taskListNameStub}>Today</span>
+  </div>
+);
+
+export default TaskListInfo;

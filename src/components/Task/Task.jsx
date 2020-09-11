@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeTaskStatusAction, removeTaskFromListAction } from '../../actions/actions';
+import EditButton from '../EditButton/EditButton';
 import RemoveButton from '../RemoveButton/RemoveButton';
 import TaskNameField from '../TaskNameField/TaskNameField';
 import EditTaskNameField from '../EditTaskNameField/EditTaskNameField';
@@ -48,12 +49,7 @@ export class Task extends Component {
           toggleEditMode={this.toggleEditMode}
         />
       )
-      : (
-        <TaskNameField
-          taskName={taskName}
-          toggleEditMode={this.toggleEditMode}
-        />
-      )
+      : <TaskNameField taskName={taskName} />
     );
   }
 
@@ -61,9 +57,9 @@ export class Task extends Component {
     complete ? completeTaskStatus : ''
   );
 
-  changeStatus = ({ target }) => {
+  changeStatus = ({ currentTarget }) => {
     const { changeTaskStatus } = this.props;
-    changeTaskStatus(target.id);
+    changeTaskStatus(currentTarget.id);
   }
 
   render() {
@@ -80,15 +76,14 @@ export class Task extends Component {
           ${removed ? removedAnimation : ''}
         `}
         onClick={this.changeStatus}
-        onKeyDown={() => {}}
+        onKeyDown={() => {}} // meh
       >
         {this.displayTaskField()}
         <RemoveButton
-          removeTaskFromList={removed
-            ? () => {}
-            : removeTaskFromList}
+          removeTaskFromList={removeTaskFromList}
           markTaskAsRemoved={this.markTaskAsRemoved}
         />
+        <EditButton toggleEditMode={this.toggleEditMode} />
       </li>
     );
   }

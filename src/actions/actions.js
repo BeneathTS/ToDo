@@ -4,7 +4,7 @@ import {
   CHANGE_TASK_NAME,
   REMOVE_TASK_FROM_LIST,
 } from '../types';
-import { store } from '../store'
+import { store } from '../store';
 
 export const addSubmittedTaskAction = (submittedTask) => {
   const state = store.getState();
@@ -19,7 +19,8 @@ export const addSubmittedTaskAction = (submittedTask) => {
 
   return ({
     type: ADD_SUBMITTED_TASK,
-    payload: tasks})
+    payload: tasks,
+  });
 };
 
 export const changeTaskStatusAction = (taskID) => {
@@ -31,13 +32,13 @@ export const changeTaskStatusAction = (taskID) => {
     !tasks[targetTaskIndex].complete
   );
 
-  return({
+  return ({
     type: CHANGE_TASK_STATUS,
     payload: tasks,
   });
 };
 
-export const changeTaskNameOnSubmitAction = (id, newTaskName) => {
+export const changeTaskNameAction = (id, newTaskName) => {
   const state = store.getState();
   const tasks = [...state.tasks];
   const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
@@ -50,18 +51,6 @@ export const changeTaskNameOnSubmitAction = (id, newTaskName) => {
   });
 };
 
-export const changeTaskNameOnBlurAction = (id, newTaskName) => {
-  const state = store.getState();
-  const tasks = [...state.tasks];
-  const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
-
-  tasks[targetTaskIndex].taskName = newTaskName;
-
-  return ({
-    type: CHANGE_TASK_NAME,
-    payload: tasks,
-  });
-};
 
 export const removeTaskFromListAction = (taskID) => {
   const state = store.getState();
@@ -69,9 +58,9 @@ export const removeTaskFromListAction = (taskID) => {
   const targetTaskIndex = tasks.findIndex((task) => (task.id === taskID));
 
   tasks.splice(targetTaskIndex, 1);
-  
+
   return ({
     type: REMOVE_TASK_FROM_LIST,
     payload: tasks,
-  })
+  });
 };
