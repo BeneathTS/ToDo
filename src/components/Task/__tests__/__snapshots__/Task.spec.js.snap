@@ -14,25 +14,28 @@ exports[`Task tests Snapshot check 1`] = `
   role="presentation"
 >
   <span
-    className="taskName"
-    onClick={[Function]}
-    onKeyPress={[Function]}
     role="textbox"
     tabIndex="-1"
   >
     TestValue
   </span>
   <div
-    className="
-          removeButton
-          
-        "
+    className="removeButton"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
     tabIndex="-1"
   >
     x
+  </div>
+  <div
+    className="editButton"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    e
   </div>
 </li>
 `;

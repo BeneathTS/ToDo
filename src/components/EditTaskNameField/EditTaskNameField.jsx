@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import {
   changeTaskNameAction,
 } from '../../actions/actions';
-import './EditTaskNameField.module.css';
+import { editTaskNameField } from './EditTaskNameField.module.css';
 
 const putStoreToEditTaskNameField = ({ tasks }) => ({ tasks });
 
@@ -50,7 +50,7 @@ class EditTaskNameField extends Component {
         <input
           ref={this.editFieldRef}
           type="text"
-          id="editTaskNameField"
+          className={editTaskNameField}
           name="editTaskNameField"
           defaultValue={taskName}
           onBlur={this.submitEditedTaskNameByBlur}

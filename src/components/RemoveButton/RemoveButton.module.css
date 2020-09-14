@@ -1,5 +1,7 @@
 .removeButton {
 	position: absolute;
+	border: none;
+	background: transparent;
 	user-select: none;
 	vertical-align: middle;
 	line-height: 35px; 

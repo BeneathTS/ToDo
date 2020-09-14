@@ -3,15 +3,13 @@ import { PropTypes } from 'prop-types';
 import { editButton } from './EditButton.module.css';
 
 const EditButton = ({ toggleEditMode }) => (
-  <div
-    role="button"
-    tabIndex="-1"
+  <button
+    type="button"
     className={editButton}
     onClick={toggleEditMode}
-    onKeyPress={() => {}} // meh
   >
     e
-  </div>
+  </button>
 );
 
 EditButton.propTypes = {

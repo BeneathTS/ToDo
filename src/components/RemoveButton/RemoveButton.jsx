@@ -16,15 +16,13 @@ export default class RemoveButton extends React.Component {
 
   render() {
     return (
-      <div
-        role="button"
-        tabIndex="-1"
+      <button
+        type="button"
         className={removeButton}
         onClick={this.removeTask}
-        onKeyDown={() => {}} // meh
       >
         x
-      </div>
+      </button>
     );
   }
 }

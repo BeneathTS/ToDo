@@ -12,7 +12,7 @@ export const addSubmittedTaskAction = (submittedTask) => {
   const taskID = tasks[0] ? tasks[0].id : -1;
 
   tasks.unshift({
-    id: `${+taskID + 1}`,
+    id: `${Number(taskID) + 1}`,
     taskName: submittedTask,
     complete: false,
   });

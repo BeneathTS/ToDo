@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
 import { changeTaskStatusAction, removeTaskFromListAction } from '../../actions/actions';
 import EditButton from '../EditButton/EditButton';
 import RemoveButton from '../RemoveButton/RemoveButton';
@@ -65,16 +66,18 @@ export class Task extends Component {
   render() {
     const { id, removeTaskFromList, complete } = this.props;
     const { removed } = this.state;
+    const taskClasses = classNames(
+      task,
+      this.setTaskStatus(complete),
+      removed ? '' : taskHover,
+      removed ? removedAnimation : '',
+    );
+
     return (
       <li
         id={id}
         role="presentation"
-        className={`
-          ${task}
-          ${this.setTaskStatus(complete)}
-          ${removed ? '' : taskHover}
-          ${removed ? removedAnimation : ''}
-        `}
+        className={taskClasses}
         onClick={this.changeStatus}
         onKeyDown={() => {}} // meh
       >
