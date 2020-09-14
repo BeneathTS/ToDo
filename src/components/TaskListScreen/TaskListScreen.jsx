@@ -20,7 +20,7 @@ const TaskListScreen = ({ tasks, addSubmittedTask }) => (
 );
 
 TaskListScreen.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.objects).isRequired,
+  tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
   addSubmittedTask: PropTypes.func.isRequired,
 };
 

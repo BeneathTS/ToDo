@@ -63,8 +63,15 @@ export class Task extends Component {
     changeTaskStatus(currentTarget.id);
   }
 
+  animationEndHandler = ({ target }) => {
+    const { removeTaskFromList } = this.props;
+    const { removed } = this.state;
+
+    if (removed) removeTaskFromList(target.id);
+  }
+
   render() {
-    const { id, removeTaskFromList, complete } = this.props;
+    const { id, complete } = this.props;
     const { removed } = this.state;
     const taskClasses = classNames(
       task,
@@ -79,13 +86,10 @@ export class Task extends Component {
         role="presentation"
         className={taskClasses}
         onClick={this.changeStatus}
-        onKeyDown={() => {}} // meh
+        onAnimationEnd={this.animationEndHandler}
       >
         {this.displayTaskField()}
-        <RemoveButton
-          removeTaskFromList={removeTaskFromList}
-          markTaskAsRemoved={this.markTaskAsRemoved}
-        />
+        <RemoveButton markTaskAsRemoved={this.markTaskAsRemoved} />
         <EditButton toggleEditMode={this.toggleEditMode} />
       </li>
     );

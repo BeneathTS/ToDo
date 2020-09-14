@@ -5,13 +5,9 @@ import { removeButton } from './RemoveButton.module.css';
 export default class RemoveButton extends React.Component {
   removeTask = (event) => {
     event.stopPropagation();
-
-    const { removeTaskFromList, markTaskAsRemoved } = this.props;
-    const { id } = event.target.parentNode;
+    const { markTaskAsRemoved } = this.props;
 
     markTaskAsRemoved();
-
-    setTimeout(() => removeTaskFromList(id), 250);
   }
 
   render() {
@@ -28,6 +24,5 @@ export default class RemoveButton extends React.Component {
 }
 
 RemoveButton.propTypes = {
-  removeTaskFromList: PropTypes.func.isRequired,
   markTaskAsRemoved: PropTypes.func.isRequired,
 };
