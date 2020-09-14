@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { inputField, newTaskInputField} from './NewTaskInputField.module.css';
+import styles from './NewTaskInputField.module.css';
 
 export default class NewTaskInputField extends React.Component {
   placeholder = 'What we gonna do?';
@@ -19,10 +19,10 @@ export default class NewTaskInputField extends React.Component {
 
   render() {
     return (
-      <form className={inputField} onSubmit={this.submitNewTask}>
+      <form className={styles.inputField} onSubmit={this.submitNewTask}>
         <input
           type="text"
-          className={newTaskInputField}
+          className={styles.newTaskInputField}
           name="newTaskInputField"
           placeholder={this.placeholder}
         />

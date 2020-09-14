@@ -51,7 +51,6 @@ export const changeTaskNameAction = (id, newTaskName) => {
   });
 };
 
-
 export const removeTaskFromListAction = (taskID) => {
   const state = store.getState();
   const tasks = [...state.tasks];
