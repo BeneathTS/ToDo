@@ -11,7 +11,7 @@ export const addSubmittedTaskAction = (submittedTask) => {
   const taskID = oldState[0] ? oldState[0].id : -1;
 
   const newState = Array.prototype.concat({
-    id: `${Number(taskID) + 1}`,
+    id: String(Number(taskID) + 1),
     taskName: submittedTask,
     complete: false,
   },
@@ -27,10 +27,9 @@ export const changeTaskStatusAction = (taskID) => {
   const { tasks: oldState } = store.getState();
 
   const newState = oldState.map((task) => {
-    if (task.id === taskID)
-      task.complete = !task.complete;
+    if (task.id === taskID) task.complete = !task.complete;
 
-    return(task);
+    return (task);
   });
 
   return ({
@@ -43,8 +42,7 @@ export const changeTaskNameAction = (id, newTaskName) => {
   const { tasks: oldState } = store.getState();
 
   const newState = oldState.map((task) => {
-    if (task.id === id)
-      task.taskName = newTaskName;
+    if (task.id === id) task.taskName = newTaskName;
 
     return (task);
   });
@@ -59,7 +57,7 @@ export const removeTaskFromListAction = (taskID) => {
   const { tasks: oldState } = store.getState();
 
   const newState = oldState.filter(({ id }) => (
-    id === taskID ? false : true
+    id !== taskID
   ));
 
   return ({
