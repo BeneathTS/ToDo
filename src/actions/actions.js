@@ -7,59 +7,63 @@ import {
 import { store } from '../store';
 
 export const addSubmittedTaskAction = (submittedTask) => {
-  const state = store.getState();
-  const tasks = [...state.tasks];
-  const taskID = tasks[0] ? tasks[0].id : -1;
+  const { tasks: oldState } = store.getState();
+  const taskID = oldState[0] ? oldState[0].id : -1;
 
-  tasks.unshift({
+  const newState = Array.prototype.concat({
     id: `${Number(taskID) + 1}`,
     taskName: submittedTask,
     complete: false,
-  });
+  },
+  oldState);
 
   return ({
     type: ADD_SUBMITTED_TASK,
-    payload: tasks,
+    payload: newState,
   });
 };
 
 export const changeTaskStatusAction = (taskID) => {
-  const state = store.getState();
-  const tasks = [...state.tasks];
-  const targetTaskIndex = tasks.findIndex((task) => (task.id === taskID));
+  const { tasks: oldState } = store.getState();
 
-  tasks[targetTaskIndex].complete = (
-    !tasks[targetTaskIndex].complete
-  );
+  const newState = oldState.map((task) => {
+    if (task.id === taskID)
+      task.complete = !task.complete;
+
+    return(task);
+  });
 
   return ({
     type: CHANGE_TASK_STATUS,
-    payload: tasks,
+    payload: newState,
   });
 };
 
 export const changeTaskNameAction = (id, newTaskName) => {
-  const state = store.getState();
-  const tasks = [...state.tasks];
-  const targetTaskIndex = tasks.findIndex((task) => (task.id === id));
+  const { tasks: oldState } = store.getState();
 
-  tasks[targetTaskIndex].taskName = newTaskName;
+  const newState = oldState.map((task) => {
+    if (task.id === id)
+      task.taskName = newTaskName;
+
+    return (task);
+  });
 
   return ({
     type: CHANGE_TASK_NAME,
-    payload: tasks,
+    payload: newState,
   });
 };
 
 export const removeTaskFromListAction = (taskID) => {
-  const state = store.getState();
-  const tasks = [...state.tasks];
-  const targetTaskIndex = tasks.findIndex((task) => (task.id === taskID));
+  const { tasks: oldState } = store.getState();
 
-  tasks.splice(targetTaskIndex, 1);
+  const newState = oldState.filter(({ id }) => (
+    id === taskID ? false : true
+  ));
 
   return ({
     type: REMOVE_TASK_FROM_LIST,
-    payload: tasks,
+    payload: newState,
   });
 };
