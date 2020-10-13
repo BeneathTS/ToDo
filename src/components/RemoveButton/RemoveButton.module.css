@@ -1,0 +1,25 @@
+.removeButton {
+	position: absolute;
+	border: none;
+	background: transparent;
+	user-select: none;
+	vertical-align: middle;
+	line-height: 35px; 
+	text-align: center;
+	font-size: 16px;
+	font-family: sans-serif;
+	right: 0;
+	top: 0;
+	width: 35px;
+	height: 35px;
+	opacity: 0.2;
+	transition: 0.2s;
+	color: #999;
+}
+
+.removeButton:hover {
+	cursor: pointer;
+	transition: 0.2s;
+	opacity: 0.8;
+	background-color: rgb(182, 0, 0);
+}

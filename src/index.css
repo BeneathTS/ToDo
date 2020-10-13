@@ -1,0 +1,25 @@
+html {
+	height: 100%;
+}
+
+body {
+	/* height: calc(100% - 40px); */
+	height: 100%;
+	margin: 0px;
+	background-color: #000;
+}
+
+#toDoList {
+	overflow-x: hidden;
+  height: 100%;
+  /* margin: 20px; */
+  border: 0;
+  padding: 0;
+  /* border-radius: 23px / 19px; */
+  background-color: #000;
+}
+
+input::-ms-clear {
+	width: 0;
+	height: 0;
+}

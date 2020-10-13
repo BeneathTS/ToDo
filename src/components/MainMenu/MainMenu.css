@@ -1,0 +1,58 @@
+.mainMenu {
+	width: 240px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	/* border-radius: 23px 0 0 23px / 19px 0 0 19px ; */
+	background-color: #1f1f1f;
+}
+
+.userProfileInfo {
+	height: 126px;
+}
+
+.profileImageStub {
+	margin: 40px 0px 0px 82px;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: #929292;
+}
+
+.profileNameStub {
+	width: 180px;
+	height: 15px;
+	margin: 16px 0px 0px 30px;
+	border-radius: 15% / 30px;
+	background-color: #626262;
+}
+
+ul.taskList {
+	margin: 0;
+	padding: 0;
+}
+
+.taskList li{
+	list-style-type: none;
+	width: 234px;
+	height: 35px;
+	margin: 5px 0px 0px 3px;
+	vertical-align: middle;
+	line-height: 35px;  
+	text-align: center;
+	margin-top: 10px;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #cccccc;
+	border-radius: 3% / 14%;
+	background-color: #636363 transparent;
+}
+
+.taskList li:hover{
+	background-color: #4b4b4b;
+}
+
+#mainTaskList{
+	background-color: #636363;
+}
